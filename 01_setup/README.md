@@ -24,6 +24,7 @@ ollama serve
 ```
 
 ✅ **If running correctly:** You will see logs confirming the server is listening locally.
+
 ⚠ **If the default port is already in use:** run:
 
 ```bash
