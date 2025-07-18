@@ -42,6 +42,8 @@ ln -sfn $STORE/.cache/pypoetry $HOME/.cache/pypoetry
 
 ### **2.2 Load Required Modules**
 
+# TODO talk about modules ollama version support models and and cesga support 
+
 ```bash
 module load cesga/2022 ollama/0.6.4 python/3.10.8
 ```
