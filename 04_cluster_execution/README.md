@@ -152,6 +152,8 @@ sbatch run_batch.sh
 sbatch --mail-type=END --mail-user=youremail@example.com run_batch.sh
 ```
 
+# TODO put results on file. check resukrs other files like slurm out err and id and others. ollama servrr log
+
 ---
 
 ## 🔗 Navigation
