@@ -1,8 +1,25 @@
+
 # 🧩 Module 3 – Structured LLM Extraction
+
+Extract **structured information** from book reviews. Start with manual JSON parsing, then switch to **Pydantic** for reliable validation.
+
+---
 
 ## 🎯 Goal
 
-Learn to extract **structured information** from book reviews, starting with a manual JSON parsing approach and moving to **Pydantic** for reliable validation. You will process single and multiple reviews and save the results in a CSV file.
+Ensure your outputs are correctly formatted before saving them.
+
+---
+
+## 0. 🔍 Manual JSON vs Pydantic
+
+| Method                         | Pros                                               | Cons                                                      |
+| ------------------------------ | -------------------------------------------------- | --------------------------------------------------------- |
+| **Manual JSON (`json.loads`)** | Simple and quick to implement                      | Fails silently if output is malformed; no type validation |
+| **Pydantic**                   | ✅ Ensures well-formed and valid data before saving | Requires defining a schema                                |
+
+**Why Pydantic?**
+*"Pydantic ensures the LLM outputs are well-formed and valid before saving."*
 
 ---
 
@@ -25,10 +42,10 @@ See [🧑‍💻 `01_structured_basic.py`](./01_structured_basic.py) — This sc
 Make sure your Ollama server is running (`ollama serve`). Then execute:
 
 ```bash
-poetry run python 03_advanced_llm_jobs/01_structured_basic.py
+poetry run python 03_structured_llm_extraction/01_structured_basic.py
 ```
 
-You should see an answer similar to:
+✅ **Expected output:**
 
 ```txt
 Parsed data: {'title': 'The Hobbit', 'author': 'J.R.R. Tolkien', 'genre': ['fantasy', 'adventure'], 'publication_year': 1937, 'sentiment': 'positive'}
@@ -58,7 +75,7 @@ Make sure your Ollama server is running (`ollama serve`). Then execute:
 poetry run python 03_advanced_llm_jobs/02_structured_single_validated.py
 ```
 
-You should see an answer similar to:
+✅ **Expected output:**
 
 ```txt
 title='1984' author='George Orwell' genre=['dystopian', 'political fiction'] publication_year=1949 sentiment='positive'
@@ -98,7 +115,7 @@ Make sure your Ollama server is running (`ollama serve`). Then execute:
 poetry run python 03_advanced_llm_jobs/03_structured_batch_validated.py
 ```
 
-You should see an answer similar to:
+✅ **Expected output:**
 
 ```txt
 Saved 3 valid entries to data/book_reviews_response.csv and logged 0 errors.
@@ -115,6 +132,6 @@ Pride and Prejudice,Jane Austen,"['romance', 'classic']",1813,positive
 
 ---
 
-[⬅ Back to Course Overview](../README.md)
+## 🔗 Navigation
 
-[➡ Next Module: 4: CESGA FinisTerrae III Cluster Execution](../04_cluster_execution/README.md)
+⬅ [Back to Basic Extraction](../02_basic_llm_extraction/README.md) | ➡ [Next Module: CESGA Cluster Execution](../04_cluster_execution/README.md)

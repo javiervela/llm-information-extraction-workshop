@@ -1,20 +1,24 @@
 # 🖥️ Module 4 – CESGA FinisTerrae III Cluster Execution
 
+Run your LLM extraction scripts on **CESGA FinisTerrae III**, first interactively on a GPU node and then as a batch job.
+
+---
+
 ## 🎯 Goal
 
-Learn to run your LLM extraction scripts on **CESGA FinisTerrae III**, first interactively on a GPU node and then as a batch job. You will use the **`qwen2.5`** model to process multiple reviews and save structured outputs to a CSV file.
+You will process multiple reviews using an LLM and save structured outputs to a CSV.
 
 ---
 
 ## 1. 📥 Clone the Repository
 
-SSH into the CESGA login node:
+SSH into CESGA:
 
 ```bash
 ssh your_user@ft3.cesga.es
 ```
 
-Then clone the repository:
+Clone the repository:
 
 ```bash
 git clone git@github.com:javiervela/llm-information-extraction-workshop.git
@@ -112,7 +116,7 @@ poetry install
 poetry run python 04_cluster_execution/01_test_interactive.py
 ```
 
-You should see an answer similar to:
+✅ **Expected output:**
 
 ```txt
 Model response: 'Pride and Prejudice' was written by Jane Austen.
@@ -141,9 +145,11 @@ sbatch run_batch.sh
 ✅ **Tip:** You can also pass SBATCH options directly:
 
 ```bash
-sbatch --mail-type=END --mail-user=jvela@ipe.csic.es run_batch.sh
+sbatch --mail-type=END --mail-user=youremail@example.com run_batch.sh
 ```
 
 ---
 
-[⬅ Back to Course Overview](../README.md)
+## 🔗 Navigation
+
+⬅ [Back to Structured Extraction](../03_structured_llm_extraction/README.md)

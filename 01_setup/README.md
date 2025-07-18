@@ -1,8 +1,12 @@
 # 🛠️ Module 1 – Setup & Environment
 
+Ensure you can run LLMs locally with **Ollama** and access the remote **CESGA FinisTerrae III cluster**.
+
+---
+
 ## 🎯 Goal
 
-Ensure you can run LLMs locally and access the remote **CESGA FinisTerrae III cluster**.
+You will install Ollama, verify Python & Poetry, and confirm CESGA access. Completing this module ensures you’re ready for local and cluster-based LLM extractions.
 
 ---
 
@@ -13,19 +17,25 @@ Ensure you can run LLMs locally and access the remote **CESGA FinisTerrae III cl
 Follow the official instructions for your OS:
 [https://ollama.com/download](https://ollama.com/download)
 
-After installation, start the Ollama server (it usually starts automatically):
+Start the Ollama server:
 
 ```bash
 ollama serve
 ```
 
-If it’s running correctly, you should see logs indicating the server is listening locally.
+✅ **If running correctly:** You will see logs confirming the server is listening locally.
+⚠ **If the default port is already in use:** run:
 
-### **1.2 Explore Available Models**
+```bash
+export OLLAMA_HOST=127.0.0.1:11433  # Change to any free port
+ollama serve
+```
 
-Visit [https://ollama.com/library](https://ollama.com/library) to browse available models.
+---
 
-### **1.3 Pull and Run a Model from the CLI**
+### **1.2 Explore & Pull Models**
+
+Browse available models: [https://ollama.com/library](https://ollama.com/library)
 
 Example with **Gemma 3**:
 
@@ -35,7 +45,7 @@ ollama list
 ollama run gemma3
 ```
 
-You can then type any question interactively. Exit with `Ctrl+D`.
+Exit interactive mode with `Ctrl+D`.
 
 ---
 
@@ -97,22 +107,7 @@ python your_script.py
 
 ### **2.5 Test Ollama Python Installation**
 
-The script `01_setup/test_ollama.py` is used to verify that the Ollama Python library and the model are working correctly:
-
-```python
-import ollama
-
-try:
-    response = ollama.chat(
-        model="gemma3", messages=[{"role": "user", "content": "Say hello!"}]
-    )
-    print(
-        "Ollama is working correctly. Model response:", response["message"]["content"]
-    )
-except Exception as e:
-    print("There was a problem communicating with Ollama:", e)
-
-```
+The script `01_setup/test_ollama.py` is used to verify that the Ollama Python library and the model are working correctly.
 
 Run it:
 
@@ -124,27 +119,25 @@ If everything is set up, you should see the model respond with a greeting.
 
 ---
 
-## 3. 🌐 Check Access to the CESGA FinisTerrae III Cluster
+## 3. 🌐 Access the CESGA FinisTerrae III Cluster
 
-Ensure you have SSH access:
+SSH into the cluster:
 
 ```bash
 ssh your_user@ft3.cesga.es
 ```
 
-Replace `your_user` with your CESGA username. If successful, you’ll see the welcome banner of the cluster.
-
-You can simplify SSH connections by adding an entry to your SSH config file (`~/.ssh/config`):
+To simplify connections, add to `~/.ssh/config`:
 
 ```ssh
-Host ft3.cesga.es cesga
+Host cesga
     HostName ft3.cesga.es
     User your_user
     PubkeyAuthentication yes
-    IdentityFile /home/javier/.ssh/id_ed25519
+    IdentityFile ~/.ssh/id_rsa
 ```
 
-Replace `your_user` with your CESGA username. After this, you can connect using:
+Now you can connect with:
 
 ```bash
 ssh cesga
@@ -152,6 +145,6 @@ ssh cesga
 
 ---
 
-[⬅ Back to Course Overview](../README.md)
+## 🔗 Navigation
 
-[➡ Next Module: 2: Basic LLM Extraction (Basics)](../02_basic_llm_extraction/README.md)
+⬅ [Back to Overview](../README.md) | ➡ [Next Module: Basic LLM Extraction](../02_basic_llm_extraction/README.md)
