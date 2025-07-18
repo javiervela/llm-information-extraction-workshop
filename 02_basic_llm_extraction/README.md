@@ -1,4 +1,4 @@
-# 💻 Module 2 – Local LLM Jobs (Basics)
+# 💻 Module 2 – Basic LLM Extraction (Basics)
 
 ## 🎯 Goal
 
@@ -21,7 +21,7 @@ See [🧑‍💻 `01_simple_extractor.py`](./01_simple_extractor.py) — This sc
 Make sure your Ollama server is running (`ollama serve`). Then execute:
 
 ```bash
-poetry run python 02_local_llm_jobs/01_simple_extractor.py
+poetry run python 02_basic_llm_extraction/01_simple_extractor.py
 ```
 
 You should see an answer similar to:
@@ -62,7 +62,7 @@ See [🧑‍💻 `02_batch_query.py`](./02_batch_query.py) — This script reads
 Run the script with:
 
 ```bash
-poetry run python 02_local_llm_jobs/02_batch_query.py
+poetry run python 02_basic_llm_extraction/02_batch_query.py
 ```
 
 You should see the responses printed in the console and saved to `book_names.txt`.
@@ -79,4 +79,4 @@ The Hobbit: Written by J.R.R. Tolkien, it is a fantasy adventure first published
 
 [⬅ Back to Course Overview](../README.md)
 
-[➡ Next Module: 3: Output Parsing (Advanced)](../03_output_parsing/README.md)
+[➡ Next Module: 3: Structured LLM Extraction](../03_output_parsing/README.md)

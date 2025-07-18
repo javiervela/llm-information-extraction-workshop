@@ -154,4 +154,4 @@ ssh cesga
 
 [⬅ Back to Course Overview](../README.md)
 
-[➡ Next Module: 2: Local LLM Jobs (Basics)](../02_local_llm_jobs/README.md)
+[➡ Next Module: 2: Basic LLM Extraction (Basics)](../02_basic_llm_extraction/README.md)

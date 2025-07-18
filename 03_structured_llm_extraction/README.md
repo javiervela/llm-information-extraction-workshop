@@ -1,4 +1,4 @@
-# 🧩 Module 3 – Output Parsing (Advanced)
+# 🧩 Module 3 – Structured LLM Extraction
 
 ## 🎯 Goal
 
