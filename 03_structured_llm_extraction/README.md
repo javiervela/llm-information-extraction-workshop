@@ -5,6 +5,8 @@ Extract **structured information** from book reviews. Start with manual JSON par
 
 ---
 
+# TODO merge goal and initial description
+
 ## 🎯 Goal
 
 Ensure your outputs are correctly formatted before saving them.
@@ -12,6 +14,8 @@ Ensure your outputs are correctly formatted before saving them.
 ---
 
 ## 0. 🔍 Manual JSON vs Pydantic
+
+# TODO add more explanation to the table and maybe other parts and modules
 
 | Method                         | Pros                                               | Cons                                                      |
 | ------------------------------ | -------------------------------------------------- | --------------------------------------------------------- |
