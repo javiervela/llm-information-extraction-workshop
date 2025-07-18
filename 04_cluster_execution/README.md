@@ -106,6 +106,8 @@ ollama run qwen2.5 "Hello"
 
 For the interactive test, run a simple script to check the LLM works correctly.
 
+# TODO change link emoji 
+
 See [🧑‍💻 `01_test_interactive.py`](./01_test_interactive.py) — This script:
 
 - Prompts the LLM to return a simple fact.
