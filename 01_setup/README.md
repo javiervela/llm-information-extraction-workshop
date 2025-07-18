@@ -85,6 +85,8 @@ This library allows you to:
 - Interact with the Ollama server from Python.
 - Send prompts and retrieve responses programmatically.
 
+# TODO OTHER ALTERNATIVES
+
 From the repo root, install all dependencies:
 
 ```bash
