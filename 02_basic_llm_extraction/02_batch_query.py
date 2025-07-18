@@ -25,6 +25,8 @@ for idx, book in enumerate(books, start=1):
     response = ollama.chat(
         model=MODEL_NAME, messages=[{"role": "user", "content": prompt}]
     )
+    # TODO ENSURE CONSISTENR FORMATTING
+    # TODO print in all execrrcises results
     answer = response["message"]["content"]
     responses[book] = answer
     print(f"{book}: {answer}")
