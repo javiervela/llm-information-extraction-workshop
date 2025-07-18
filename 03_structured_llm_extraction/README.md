@@ -89,6 +89,8 @@ title='1984' author='George Orwell' genre=['dystopian', 'political fiction'] pub
 
 ## 3. 📊 Batch Processing Reviews & Saving to CSV
 
+# TODO CHANGE WHAT YOU WILL DO
+
 ### **3.1 What You’ll Do**
 
 You will process multiple reviews, validate each, save valid entries to a CSV, and log invalid ones.
