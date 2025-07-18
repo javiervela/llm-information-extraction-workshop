@@ -60,6 +60,8 @@ The Hobbit
 
 See [`02_batch_query.py`](./02_batch_query.py).
 
+# TODO explain what the script does. add emojis to script links 
+
 ### **2.4 Run the Script**
 
 ```bash
