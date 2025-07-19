@@ -42,7 +42,7 @@ ln -sfn $STORE/.cache/pypoetry $HOME/.cache/pypoetry
 
 ### **2.2 Load Required Modules**
 
-# TODO talk about modules ollama version support models and and cesga support 
+# TODO talk about modules ollama version support models and and cesga support
 
 ```bash
 module load cesga/2022 ollama/0.6.4 python/3.10.8
@@ -106,9 +106,7 @@ ollama run qwen2.5 "Hello"
 
 For the interactive test, run a simple script to check the LLM works correctly.
 
-# TODO change link emoji 
-
-See [🧑‍💻 `01_test_interactive.py`](./01_test_interactive.py) — This script:
+This script </> [`01_test_interactive.py`](./01_test_interactive.py) does the following:
 
 - Prompts the LLM to return a simple fact.
 - Prints the response.
@@ -132,7 +130,7 @@ Model response: 'Pride and Prejudice' was written by Jane Austen.
 
 ### **4.1 Example Batch Script: `run_batch.sh`**
 
-See [🧑‍💻 `run_batch.sh`](./run_batch.sh) — This script:
+This script </> [`run_batch.sh`](./run_batch.sh) does the following:
 
 - Starts the Ollama server.
 - Handles retries if the server is not ready.

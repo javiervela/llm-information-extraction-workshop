@@ -1,4 +1,3 @@
-
 # 💻 Module 2 – Basic LLM Extraction
 
 Learn to run basic LLM jobs locally using **Ollama**. You will query single inputs and process batches using prompt templates.
@@ -19,8 +18,10 @@ Run a Python script that asks the LLM a simple question and prints the response.
 
 ### **1.2 Example Script**
 
-See [`01_simple_extractor.py`](./01_simple_extractor.py).
-This script sends a simple question to the LLM and prints the response.
+The script </> [`01_simple_extractor.py`](./01_simple_extractor.py) does the following:
+
+- Sends a simple question to the LLM
+- Prints the response.
 
 ### **1.2 Run the Script**
 
@@ -58,9 +59,11 @@ The Hobbit
 
 ### **2.3 Example Script**
 
-See [`02_batch_query.py`](./02_batch_query.py).
+The script </> [`02_batch_query.py`](./02_batch_query.py) does the following:
 
-# TODO explain what the script does. add emojis to script links 
+- Reads book titles from a TXT file.
+- Uses a prompt template to query the LLM for structured information.
+- Saves all responses to an output file.
 
 ### **2.4 Run the Script**
 
@@ -83,6 +86,5 @@ The Hobbit: Written by J.R.R. Tolkien, it is a fantasy adventure first published
 ⬅ [Back to Setup](../01_setup/README.md) | ➡ [Next Module: Structured LLM Extraction](../03_structured_llm_extraction/README.md)
 
 # TODO add a overview of what we have done
-
 
 ---

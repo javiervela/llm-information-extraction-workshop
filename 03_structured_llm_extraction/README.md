@@ -1,4 +1,3 @@
-
 # 🧩 Module 3 – Structured LLM Extraction
 
 Extract **structured information** from book reviews. Start with manual JSON parsing, then switch to **Pydantic** for reliable validation.
@@ -17,13 +16,13 @@ Ensure your outputs are correctly formatted before saving them.
 
 # TODO add more explanation to the table and maybe other parts and modules
 
-| Method                         | Pros                                               | Cons                                                      |
-| ------------------------------ | -------------------------------------------------- | --------------------------------------------------------- |
-| **Manual JSON (`json.loads`)** | Simple and quick to implement                      | Fails silently if output is malformed; no type validation |
+| Method                         | Pros                                                | Cons                                                      |
+| ------------------------------ | --------------------------------------------------- | --------------------------------------------------------- |
+| **Manual JSON (`json.loads`)** | Simple and quick to implement                       | Fails silently if output is malformed; no type validation |
 | **Pydantic**                   | ✅ Ensures well-formed and valid data before saving | Requires defining a schema                                |
 
 **Why Pydantic?**
-*"Pydantic ensures the LLM outputs are well-formed and valid before saving."*
+_"Pydantic ensures the LLM outputs are well-formed and valid before saving."_
 
 ---
 
@@ -35,7 +34,7 @@ You will prompt the LLM to return structured JSON explicitly and parse it manual
 
 ### **1.2 Example Script**
 
-See [🧑‍💻 `01_structured_basic.py`](./01_structured_basic.py) — This script:
+The script </> [`01_structured_basic.py`](./01_structured_basic.py) does the following:
 
 - Builds a prompt explicitly requesting JSON.
 - Calls the LLM and manually parses the JSON with `json.loads()`.
@@ -52,7 +51,7 @@ poetry run python 03_structured_llm_extraction/01_structured_basic.py
 ✅ **Expected output:**
 
 ```txt
-Parsed data: {'title': 'The Hobbit', 'author': 'J.R.R. Tolkien', 'genre': ['fantasy', 'adventure'], 'publication_year': 1937, 'sentiment': 'positive'}
+Parsed data: {'title': 'The Hobbit', 'author': 'J.R.R. Tolkien', 'genre': ['fantasy', 'adventure'], 'publication_year': 1937, 'sentiment_positive': True}
 ```
 
 ---
@@ -65,7 +64,7 @@ You will use a **Pydantic model** to ensure the LLM returns correctly structured
 
 ### **2.2 Example Script**
 
-See [🧑‍💻 `02_structured_single_validated.py`](./02_structured_single_validated.py) — This script:
+The script </> [`02_structured_single_validated.py`](./02_structured_single_validated.py) does the following:
 
 - Defines a `BookReview` Pydantic model.
 - Uses `format=BookReview.model_json_schema()` to guide the LLM.
@@ -82,7 +81,7 @@ poetry run python 03_advanced_llm_jobs/02_structured_single_validated.py
 ✅ **Expected output:**
 
 ```txt
-Parsed data: title='1984' author='George Orwell' genre=['dystopian', 'political fiction'] publication_year=1949 sentiment='positive'
+Parsed data: title='1984' author='George Orwell' genre=['dystopian', 'political fiction'] publication_year=1949 sentiment_positive=True
 ```
 
 ---
@@ -107,7 +106,7 @@ Jane Austen’s 'Pride and Prejudice' is a timeless romantic classic that brilli
 
 ### **3.3 Example Script**
 
-See [🧑‍💻 `03_structured_batch_validated.py`](./03_structured_batch_validated.py) — This script:
+This script </> [`03_structured_batch_validated.py`](./03_structured_batch_validated.py) does the following:
 
 - Reads reviews from the input file.
 - Validates each response with Pydantic.
@@ -130,10 +129,10 @@ Saved 3 valid entries to data/book_reviews_response.csv and logged 0 errors.
 The generated CSV will look similar to:
 
 ```csv
-title,author,genre,publication_year,sentiment
-The Hobbit,J.R.R. Tolkien,"['fantasy', 'adventure']",1937,positive
-1984,George Orwell,"['dystopian', 'political fiction']",1949,positive
-Pride and Prejudice,Jane Austen,"['romance', 'classic']",1813,positive
+title,author,genre,publication_year,sentiment_positive
+The Hobbit,J.R.R. Tolkien,"['fantasy', 'adventure']",1937,True
+1984,George Orwell,"['dystopian', 'political fiction']",1949,True
+Pride and Prejudice,Jane Austen,"['romance', 'classic']",1813,True
 ```
 
 ---
