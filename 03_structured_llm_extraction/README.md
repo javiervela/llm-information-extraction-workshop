@@ -82,7 +82,7 @@ poetry run python 03_advanced_llm_jobs/02_structured_single_validated.py
 ✅ **Expected output:**
 
 ```txt
-title='1984' author='George Orwell' genre=['dystopian', 'political fiction'] publication_year=1949 sentiment='positive'
+Parsed data: title='1984' author='George Orwell' genre=['dystopian', 'political fiction'] publication_year=1949 sentiment='positive'
 ```
 
 ---
