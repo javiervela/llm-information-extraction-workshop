@@ -1,12 +1,12 @@
 # 💻 Module 2 – Basic LLM Extraction
 
-Learn to run basic LLM jobs locally using **Ollama**. You will query single inputs and process batches using prompt templates.
-
----
-
 ## 🎯 Goal
 
-You will write scripts that interact with LLMs, process files, and save responses.
+**Learn to run basic LLM jobs locally using Ollama:**
+
+- Write scripts that **interact with LLMs**
+- Process single inputs and **batch queries** using **prompt templates**
+- **Save responses** to files
 
 ---
 
@@ -81,10 +81,18 @@ The Hobbit: Written by J.R.R. Tolkien, it is a fantasy adventure first published
 
 ---
 
+## 📝 Module Recap
+
+- Ran your first Python script to interact with a local LLM using Ollama.
+- Sent single queries and printed LLM responses.
+- Processed multiple inputs using prompt templates for batch extraction.
+- Saved structured LLM outputs to files for further analysis.
+- Practiced basic automation for local LLM-powered information extraction.
+
+---
+
 ## 🔗 Navigation
 
 ⬅ [Back to Setup](../01_setup/README.md) | ➡ [Next Module: Structured LLM Extraction](../03_structured_llm_extraction/README.md)
-
-# TODO add a overview of what we have done
 
 ---

@@ -1,18 +1,16 @@
 # 🧩 Module 3 – Structured LLM Extraction
 
-Extract **structured information** from book reviews. Start with manual JSON parsing, then switch to **Pydantic** for reliable validation.
-
----
-
-# TODO merge goal and initial description
-
 ## 🎯 Goal
 
-Ensure your outputs are correctly formatted before saving them.
+**Extract structured information from book reviews with reliable validation:**
+
+- Start with manual JSON parsing to understand basic extraction.
+- Switch to **Pydantic** models for robust data validation.
+- Ensure all outputs are correctly formatted before saving.
 
 ---
 
-## 0. 🔍 Manual JSON vs Pydantic
+## 🔍 Manual JSON vs Pydantic
 
 # TODO add more explanation to the table and maybe other parts and modules
 
@@ -134,6 +132,15 @@ The Hobbit,J.R.R. Tolkien,"['fantasy', 'adventure']",1937,True
 1984,George Orwell,"['dystopian', 'political fiction']",1949,True
 Pride and Prejudice,Jane Austen,"['romance', 'classic']",1813,True
 ```
+
+---
+
+## 📝 Module Recap
+
+- Compared manual JSON parsing with Pydantic validation for extracting structured data.
+- Implemented basic extraction using `json.loads()` to highlight common pitfalls.
+- Defined and used a **Pydantic** model for robust validation of LLM outputs.
+- Processed and validated multiple book reviews in batch, saving results to CSV and logging errors.
 
 ---
 

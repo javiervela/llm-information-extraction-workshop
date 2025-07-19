@@ -1,12 +1,12 @@
 # 🛠️ Module 1 – Setup & Environment
 
-Ensure you can run LLMs locally with **Ollama** and access the remote **CESGA FinisTerrae III cluster**.
-
----
-
 ## 🎯 Goal
 
-You will install Ollama, verify Python & Poetry, and confirm CESGA access. Completing this module ensures you’re ready for local and cluster-based LLM extractions.
+**Set up your local environment for LLM extraction:**
+
+- Install **Ollama** for local LLM serving.
+- Verify your **Python** and **Poetry** setup for dependency management.
+- Confirm access to the **CESGA FinisTerrae III** cluster for remote computation.
 
 ---
 
@@ -148,6 +148,16 @@ Now you can connect with:
 ```bash
 ssh cesga
 ```
+
+---
+
+## 📝 Module Recap
+
+- Installed and tested **Ollama** for local LLM serving.
+- Explored and pulled models from the Ollama library.
+- Verified your **Python** version and installed **Poetry** for dependency management.
+- Integrated Python with Ollama using the official library.
+- Connected to the **CESGA FinisTerrae III cluster** via SSH for remote computation.
 
 ---
 

@@ -1,12 +1,11 @@
 # 🖥️ Module 4 – CESGA FinisTerrae III Cluster Execution
 
-Run your LLM extraction scripts on **CESGA FinisTerrae III**, first interactively on a GPU node and then as a batch job.
-
----
-
 ## 🎯 Goal
 
-You will process multiple reviews using an LLM and save structured outputs to a CSV.
+**Run your LLM extraction scripts on CESGA FinisTerrae III:**
+
+- Execute LLM extraction interactively on a GPU node.
+- Submit batch jobs for automated processing.
 
 ---
 
@@ -151,6 +150,16 @@ sbatch --mail-type=END --mail-user=youremail@example.com run_batch.sh
 ```
 
 # TODO put results on file. check resukrs other files like slurm out err and id and others. ollama servrr log
+
+---
+
+## 📝 Module Recap
+
+- Connected to the **CESGA FinisTerrae III cluster** via SSH.
+- Cloned the repository, configured Ollama and Poetry storage, and loaded required modules.
+- Performed an interactive test run on a GPU node to verify LLM functionality.
+- Submitted batch jobs for automated LLM extraction and processing.
+- Learned how to monitor job outputs and server logs for troubleshooting.
 
 ---
 
