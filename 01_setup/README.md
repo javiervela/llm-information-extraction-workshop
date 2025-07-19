@@ -78,15 +78,6 @@ poetry --version
 
 ### **2.3 Install Dependencies**
 
-The course uses the **Ollama Python library**: [https://github.com/ollama/ollama-python](https://github.com/ollama/ollama-python).
-
-This library allows you to:
-
-- Interact with the Ollama server from Python.
-- Send prompts and retrieve responses programmatically.
-
-# TODO OTHER ALTERNATIVES
-
 From the repo root, install all dependencies:
 
 ```bash
@@ -108,17 +99,29 @@ poetry shell
 python your_script.py
 ```
 
-### **2.5 Test Ollama Python Installation**
+### **2.5 Ollama Python**
 
-The script `01_setup/test_ollama.py` is used to verify that the Ollama Python library and the model are working correctly.
+For Python integration, this course uses the **Ollama Python library**: [https://github.com/ollama/ollama-python](https://github.com/ollama/ollama-python).
 
-Run it:
+This library lets you:
+
+- Interact with the Ollama server directly from Python code.
+- Send prompts and receive responses programmatically.
+
+To verify your setup, run the provided test script:
 
 ```bash
 poetry run python 01_setup/test_ollama.py
 ```
 
-If everything is set up, you should see the model respond with a greeting.
+If successful, you’ll see a greeting from the model.
+
+#### 🛠️ Alternatives
+
+- **Direct API requests:** You can use Python’s `requests` or similar libraries to call Ollama’s REST API, but this requires manual handling of endpoints and payloads.
+- **Frameworks:** Advanced frameworks like LangChain or LlamaIndex offer powerful orchestration and chaining, but may be overkill for simple tasks.
+
+For most workshop exercises, the Ollama Python library is the simplest and most convenient option.
 
 ---
 
