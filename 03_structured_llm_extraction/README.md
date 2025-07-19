@@ -26,7 +26,7 @@ _"Pydantic ensures the LLM outputs are well-formed and valid before saving."_
 
 ## 1. 📦 Basic Manual JSON Parsing
 
-### **1.1 What You’ll Do**
+### **1.1 Overview**
 
 You will prompt the LLM to return structured JSON explicitly and parse it manually with `json.loads()`. This is the simplest approach and shows why better validation is needed.
 
@@ -56,7 +56,7 @@ Parsed data: {'title': 'The Hobbit', 'author': 'J.R.R. Tolkien', 'genre': ['fant
 
 ## 2. ✅ Single Review with Pydantic Validation
 
-### **2.1 What You’ll Do**
+### **2.1 Overview**
 
 You will use a **Pydantic model** to ensure the LLM returns correctly structured data.
 
@@ -86,9 +86,7 @@ Parsed data: title='1984' author='George Orwell' genre=['dystopian', 'political 
 
 ## 3. 📊 Batch Processing Reviews & Saving to CSV
 
-# TODO CHANGE WHAT YOU WILL DO
-
-### **3.1 What You’ll Do**
+### **3.1 Overview**
 
 You will process multiple reviews, validate each, save valid entries to a CSV, and log invalid ones.
 

@@ -12,7 +12,7 @@
 
 ## 1. 📦 Running Your First Local LLM Script
 
-### **1.1 What You’ll Do**
+### **1.1 Overview**
 
 Run a Python script that asks the LLM a simple question and prints the response.
 
@@ -41,7 +41,7 @@ Model response: 'Pride and Prejudice' was written by Jane Austen.
 
 ## 2. 🗂️ Batch Processing with Prompt Templates
 
-### **2.1 What You’ll Do**
+### **2.1 Overview**
 
 1. Read book titles from a file.
 2. Use a prompt template to request structured info.
