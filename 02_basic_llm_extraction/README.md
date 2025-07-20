@@ -93,6 +93,6 @@ The Hobbit: Written by J.R.R. Tolkien, it is a fantasy adventure first published
 
 ## 🔗 Navigation
 
-⬅ [Back to Setup](../01_setup/README.md) | ➡ [Next Module: Structured LLM Extraction](../03_structured_llm_extraction/README.md)
+⬅ [Module 1: Setup & Environment](../01_setup/README.md) | 🏠 [Home](../README.md) | ➡ [Module 3: Structured LLM Extraction](../03_structured_llm_extraction/README.md)
 
 ---

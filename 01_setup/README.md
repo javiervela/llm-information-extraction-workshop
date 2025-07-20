@@ -163,4 +163,4 @@ ssh cesga
 
 ## 🔗 Navigation
 
-⬅ [Back to Overview](../README.md) | ➡ [Next Module: Basic LLM Extraction](../02_basic_llm_extraction/README.md)
+🏠 [Home](../README.md) | ➡ [Module 2: Basic LLM Extraction](../02_basic_llm_extraction/README.md)

@@ -174,4 +174,4 @@ sbatch --mail-type=END --mail-user=youremail@example.com run_batch.sh
 
 ## 🔗 Navigation
 
-⬅ [Back to Structured Extraction](../03_structured_llm_extraction/README.md)
+⬅ [Module 3: Structured LLM Extraction](../03_structured_llm_extraction/README.md) | 🏠 [Home](../README.md)

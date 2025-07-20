@@ -154,4 +154,4 @@ Pride and Prejudice,Jane Austen,"['romance', 'classic']",1813,True
 
 ## 🔗 Navigation
 
-⬅ [Back to Basic Extraction](../02_basic_llm_extraction/README.md) | ➡ [Next Module: CESGA Cluster Execution](../04_cluster_execution/README.md)
+⬅ [Module 2: Basic LLM Extraction](../02_basic_llm_extraction/README.md) | 🏠 [Home](../README.md) | ➡ [Module 4: CESGA Cluster Execution](../04_cluster_execution/README.md)
