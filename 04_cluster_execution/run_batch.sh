@@ -32,7 +32,9 @@ while ! curl -s $OLLAMA_HOST | grep -q "Ollama is running"; do
     fi
     sleep 1
 done
+echo "Ollama server is running."
 
 # Run the Python script
 cd $HOME/llm-information-extraction-workshop
+alias poetry="$HOME/.local/bin/poetry"
 poetry run python 04_cluster_execution/01_test_interactive.py
