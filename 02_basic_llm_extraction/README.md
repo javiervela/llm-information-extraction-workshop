@@ -12,11 +12,9 @@
 
 ## 1. 📦 Running Your First Local LLM Script
 
-### **1.1 Overview**
-
 Run a Python script that asks the LLM a simple question and prints the response.
 
-### **1.2 Example Script**
+### **1.1 Example Script**
 
 The script </> [`01_simple_extractor.py`](./01_simple_extractor.py) does the following:
 
@@ -41,13 +39,11 @@ Model response: 'Pride and Prejudice' was written by Jane Austen.
 
 ## 2. 🗂️ Batch Processing with Prompt Templates
 
-### **2.1 Overview**
-
 1. Read book titles from a file.
 2. Use a prompt template to request structured info.
 3. Save all responses to an output file.
 
-### **2.2 Input File**
+### **2.1 Input File**
 
 `data/book_names.txt`:
 
@@ -57,7 +53,7 @@ Pride and Prejudice
 The Hobbit
 ```
 
-### **2.3 Example Script**
+### **2.2 Example Script**
 
 The script </> [`02_batch_query.py`](./02_batch_query.py) does the following:
 
@@ -65,7 +61,7 @@ The script </> [`02_batch_query.py`](./02_batch_query.py) does the following:
 - Uses a prompt template to query the LLM for structured information.
 - Saves all responses to an output file.
 
-### **2.4 Run the Script**
+### **2.3 Run the Script**
 
 ```bash
 poetry run python 02_basic_llm_extraction/02_batch_query.py

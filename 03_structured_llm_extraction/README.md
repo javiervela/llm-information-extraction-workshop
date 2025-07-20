@@ -36,11 +36,9 @@ By enforcing a schema, you reduce bugs, improve data quality, and make downstrea
 
 ## 1. 📦 Basic Manual JSON Parsing
 
-### **1.1 Overview**
-
 You will prompt the LLM to return structured JSON explicitly and parse it manually with `json.loads()`. This is the simplest approach and shows why better validation is needed.
 
-### **1.2 Example Script**
+### **1.1 Example Script**
 
 The script </> [`01_structured_basic.py`](./01_structured_basic.py) does the following:
 
@@ -48,7 +46,7 @@ The script </> [`01_structured_basic.py`](./01_structured_basic.py) does the fol
 - Calls the LLM and manually parses the JSON with `json.loads()`.
 - Prints the parsed dictionary or an error if the output isn’t valid JSON.
 
-### **1.3 Run the Script**
+### **1.2 Run the Script**
 
 Make sure your Ollama server is running (`ollama serve`). Then execute:
 
@@ -66,11 +64,9 @@ Parsed data: {'title': 'The Hobbit', 'author': 'J.R.R. Tolkien', 'genre': ['fant
 
 ## 2. ✅ Single Review with Pydantic Validation
 
-### **2.1 Overview**
-
 You will use a **Pydantic model** to ensure the LLM returns correctly structured data.
 
-### **2.2 Example Script**
+### **2.1 Example Script**
 
 The script </> [`02_structured_single_validated.py`](./02_structured_single_validated.py) does the following:
 
@@ -78,7 +74,7 @@ The script </> [`02_structured_single_validated.py`](./02_structured_single_vali
 - Uses `format=BookReview.model_json_schema()` to guide the LLM.
 - Validates the response with `model_validate_json()` and prints the structured object.
 
-### **2.3 Run the Script**
+### **2.2 Run the Script**
 
 Make sure your Ollama server is running (`ollama serve`). Then execute:
 
@@ -96,11 +92,9 @@ Parsed data: title='1984' author='George Orwell' genre=['dystopian', 'political 
 
 ## 3. 📊 Batch Processing Reviews & Saving to CSV
 
-### **3.1 Overview**
-
 You will process multiple reviews, validate each, save valid entries to a CSV, and log invalid ones.
 
-### **3.2 Input File**
+### **3.1 Input File**
 
 The file `data/book_reviews.txt` is already provided in the repository and contains:
 
@@ -110,7 +104,7 @@ George Orwell’s '1984' is a chilling dystopian masterpiece from 1949 that feel
 Jane Austen’s 'Pride and Prejudice' is a timeless romantic classic that brilliantly critiques social norms.
 ```
 
-### **3.3 Example Script**
+### **3.2 Example Script**
 
 This script </> [`03_structured_batch_validated.py`](./03_structured_batch_validated.py) does the following:
 
@@ -118,7 +112,7 @@ This script </> [`03_structured_batch_validated.py`](./03_structured_batch_valid
 - Validates each response with Pydantic.
 - Saves valid entries to a CSV file and logs invalid ones to a separate error file.
 
-### **3.4 Run the Script**
+### **3.3 Run the Script**
 
 Make sure your Ollama server is running (`ollama serve`). Then execute:
 

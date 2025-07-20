@@ -12,7 +12,9 @@
 
 ---
 
-## 1. 📥 Clone the Repository
+## 1. ⚙️ Prepare the Environment
+
+### **1.1 Clone the Repository**
 
 SSH into CESGA:
 
@@ -27,11 +29,7 @@ git clone git@github.com:javiervela/llm-information-extraction-workshop.git
 cd llm-information-extraction-workshop
 ```
 
----
-
-## 2. ⚙️ Prepare the Environment
-
-### **2.1 Configure Storage for Ollama & Poetry**
+### **1.2 Configure Storage for Ollama & Poetry**
 
 ```bash
 mkdir -p $LUSTRE/.ollama
@@ -42,7 +40,7 @@ mkdir -p $HOME/.cache
 ln -sfn $STORE/.cache/pypoetry $HOME/.cache/pypoetry
 ```
 
-### **2.2 Load Required Modules**
+### **1.3 Load Required Modules**
 
 CESGA uses environment modules to manage software versions, allowing users to easily load and switch between different tools.
 
@@ -73,9 +71,9 @@ Warning: client version is 0.6.4
 
 ---
 
-## 3. 🧪 Interactive Test Run (GPU Node)
+## 2. 🧪 Interactive Test Run (GPU Node)
 
-### **3.1 Start a GPU Session**
+### **2.1 Start a GPU Session**
 
 Request an interactive GPU node:
 
@@ -89,7 +87,7 @@ Check available GPUs:
 nvidia-smi
 ```
 
-### **3.2 Start the Ollama Server**
+### **2.2 Start the Ollama Server**
 
 Set environment variables and start the server:
 
@@ -110,7 +108,7 @@ ollama list
 ollama run qwen2.5 "Hello"
 ```
 
-### **3.3 Run the Script**
+### **2.3 Run the Script**
 
 For the interactive test, run a simple script to check the LLM works correctly.
 
@@ -134,9 +132,9 @@ Model response: 'Pride and Prejudice' was written by Jane Austen.
 
 ---
 
-## 4. 🧾 Batch Job Submission
+## 3. 🧾 Batch Job Submission
 
-### **4.1 Example Batch Script: `run_batch.sh`**
+### **3.1 Example Script: `run_batch.sh`**
 
 This script </> [`run_batch.sh`](./run_batch.sh) does the following:
 
@@ -144,7 +142,7 @@ This script </> [`run_batch.sh`](./run_batch.sh) does the following:
 - Handles retries if the server is not ready.
 - Runs the LLM extraction script.
 
-### **4.2 Submit the Job**
+### **3.2 Submit the Job**
 
 Submit the batch job:
 
