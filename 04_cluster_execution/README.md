@@ -4,8 +4,11 @@
 
 **Run your LLM extraction scripts on CESGA FinisTerrae III:**
 
+- Set up CESGA access and environment.
 - Execute LLM extraction interactively on a GPU node.
 - Submit batch jobs for automated processing.
+
+> Check the [CESGA FinisTerrae III documentation](https://cesga-docs.gitlab.io/ft3-user-guide/index.html) for more details on cluster usage and job submission.
 
 ---
 
@@ -41,7 +44,13 @@ ln -sfn $STORE/.cache/pypoetry $HOME/.cache/pypoetry
 
 ### **2.2 Load Required Modules**
 
-# TODO talk about modules ollama version support models and and cesga support
+CESGA uses environment modules to manage software versions, allowing users to easily load and switch between different tools.
+
+> **Note**: The current Ollama version may not support the latest models available in the Ollama library.
+
+If you need a different Ollama version, contact CESGA support at [aplicaciones@cesga.es](mailto:aplicaciones@cesga.es) and specify your requirements.
+
+Load the required modules for this workshop:
 
 ```bash
 module load cesga/2022 ollama/0.6.4 python/3.10.8
@@ -54,7 +63,7 @@ python --version
 ollama --version
 ```
 
-Expected output:
+✅ **Expected output:**
 
 ```txt
 Python 3.10.8
