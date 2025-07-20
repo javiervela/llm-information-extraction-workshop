@@ -45,7 +45,7 @@ ollama list
 ollama run gemma3
 ```
 
-Exit interactive mode with `Ctrl+D`.
+Exit interactive mode with `Ctrl+D` or using command `/bye`.
 
 ---
 
