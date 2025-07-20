@@ -1,0 +1,13 @@
+cesga/2022 unloaded
+ollama/0.6.4 unloaded
+python/3.10.8 unloaded
+        Preparing the environment for use of the CESGA 2022 software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+cesga/2022 loaded
+ollama/0.6.4 loaded
+python/3.10.8 loaded
+ollama/0.6.4 unloaded
+ollama/0.6.4 loaded
+python/3.10.8 unloaded
+python/3.10.8 loaded
