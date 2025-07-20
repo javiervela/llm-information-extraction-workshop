@@ -47,8 +47,8 @@ ln -sfn $STORE/.cache/pypoetry $HOME/.cache/pypoetry
 CESGA uses environment modules to manage software versions, allowing users to easily load and switch between different tools.
 
 > 🗒️ **Note**: The current Ollama version may not support the latest models available in the Ollama library.
-
-If you need a different Ollama version, contact CESGA support at [aplicaciones@cesga.es](mailto:aplicaciones@cesga.es) and specify your requirements.
+>
+> If you need a different Ollama version, contact CESGA support at [aplicaciones@cesga.es](mailto:aplicaciones@cesga.es) and specify your requirements.
 
 Load the required modules for this workshop:
 
@@ -131,22 +131,24 @@ poetry install
 ```
 
 > 🗒️ **Note**: If the poetry installation fails, you can try installing in CESGA the latest version of Poetry manually.
-
-```bash
-curl -sSL https://install.python-poetry.org | python3 -
-alias poetry="$HOME/.local/bin/poetry"
-```
+>
+> To install Poetry manually, run:
+>
+> ```bash
+> curl -sSL https://install.python-poetry.org | python3 -
+> alias poetry="$HOME/.local/bin/poetry"
+> ```
 
 ### **2.4 Run the Script**
 
 For the interactive test, run a simple script to check the LLM works correctly.
 
-This script </> [`01_test_interactive.py`](./01_test_interactive.py) does the following:
+</> **See the script** [`01_test_interactive.py`](./01_test_interactive.py) that does the following:
 
 - Prompts the LLM to return a simple fact.
 - Prints the response.
 
-Run it:
+🏃‍♂️ **Run the script**:
 
 ```bash
 poetry run python 04_cluster_execution/01_test_interactive.py
@@ -171,17 +173,13 @@ Model response: 'Pride and Prejudice' was written by Jane Austen.
 
 ## 3. 🧾 Batch Job Submission
 
-### **3.1 Example Script: `run_batch.sh`**
-
-This script </> [`run_batch.sh`](./run_batch.sh) does the following:
+</> **See the script** [`run_batch.sh`](./run_batch.sh) that does the following:
 
 - Starts the Ollama server.
 - Handles retries if the server is not ready.
 - Runs the LLM extraction script.
 
-### **3.2 Submit the Job**
-
-Submit the batch job:
+🚀 **Submit the job**:
 
 ```bash
 export LOG_DIR=$HOME/llm-information-extraction-workshop/log
@@ -195,9 +193,7 @@ sbatch \
 
 > 🗒️ **Note**: You can pass SBATCH options directly to `sbatch` to parameterize your job with variables.
 
-### **3.3 Monitor Job Status**
-
-Check the status of your job:
+🔍 **Monitor job Status**:
 
 ```bash
 squeue

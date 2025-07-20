@@ -133,21 +133,22 @@ SSH into the cluster:
 ssh your_user@ft3.cesga.es
 ```
 
-To simplify connections, add to `~/.ssh/config`:
-
-```ssh
-Host cesga
-    HostName ft3.cesga.es
-    User your_user
-    PubkeyAuthentication yes
-    IdentityFile ~/.ssh/id_rsa
-```
-
-Now you can connect with:
-
-```bash
-ssh cesga
-```
+> 🗒️ **Note**:  
+> To simplify connections, add the following to your `~/.ssh/config`:
+>
+> ```
+> Host cesga
+>     HostName ft3.cesga.es
+>     User your_user
+>     PubkeyAuthentication yes
+>     IdentityFile ~/.ssh/id_rsa
+> ```
+>
+> Now you can connect with:
+>
+> ```bash
+> ssh cesga
+> ```
 
 ---
 

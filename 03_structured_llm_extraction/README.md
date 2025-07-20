@@ -38,17 +38,13 @@ By enforcing a schema, you reduce bugs, improve data quality, and make downstrea
 
 You will prompt the LLM to return structured JSON explicitly and parse it manually with `json.loads()`. This is the simplest approach and shows why better validation is needed.
 
-### **1.1 Example Script**
-
-The script </> [`01_structured_basic.py`](./01_structured_basic.py) does the following:
+</> **See the script** [`01_structured_basic.py`](./01_structured_basic.py) that does the following:
 
 - Builds a prompt explicitly requesting JSON.
 - Calls the LLM and manually parses the JSON with `json.loads()`.
 - Prints the parsed dictionary or an error if the output isn’t valid JSON.
 
-### **1.2 Run the Script**
-
-Make sure your Ollama server is running (`ollama serve`). Then execute:
+🏃‍♂️ **Run the script**:
 
 ```bash
 poetry run python 03_structured_llm_extraction/01_structured_basic.py
@@ -66,17 +62,13 @@ Parsed data: {'title': 'The Hobbit', 'author': 'J.R.R. Tolkien', 'genre': ['fant
 
 You will use a **Pydantic model** to ensure the LLM returns correctly structured data.
 
-### **2.1 Example Script**
-
-The script </> [`02_structured_single_validated.py`](./02_structured_single_validated.py) does the following:
+</> **See the script** [`02_structured_single_validated.py`](./02_structured_single_validated.py) that does the following:
 
 - Defines a `BookReview` Pydantic model.
 - Uses `format=BookReview.model_json_schema()` to guide the LLM.
 - Validates the response with `model_validate_json()` and prints the structured object.
 
-### **2.2 Run the Script**
-
-Make sure your Ollama server is running (`ollama serve`). Then execute:
+🏃‍♂️ **Run the script**:
 
 ```bash
 poetry run python 03_structured_llm_extraction/02_structured_single_validated.py
@@ -94,9 +86,7 @@ Parsed data: title='1984' author='George Orwell' genre=['dystopian', 'political 
 
 You will process multiple reviews, validate each, save valid entries to a CSV, and log invalid ones.
 
-### **3.1 Input File**
-
-The file `data/book_reviews.txt` is already provided in the repository and contains:
+📄 **See the file** `data/book_reviews.txt` that contains:
 
 ```txt
 I loved Tolkien’s fantasy classic 'The Hobbit', first published in 1937. Such a charming adventure!
@@ -104,17 +94,13 @@ George Orwell’s '1984' is a chilling dystopian masterpiece from 1949 that feel
 Jane Austen’s 'Pride and Prejudice' is a timeless romantic classic that brilliantly critiques social norms.
 ```
 
-### **3.2 Example Script**
-
-This script </> [`03_structured_batch_validated.py`](./03_structured_batch_validated.py) does the following:
+</> **See the script** [`03_structured_batch_validated.py`](./03_structured_batch_validated.py) that does the following:
 
 - Reads reviews from the input file.
 - Validates each response with Pydantic.
 - Saves valid entries to a CSV file and logs invalid ones to a separate error file.
 
-### **3.3 Run the Script**
-
-Make sure your Ollama server is running (`ollama serve`). Then execute:
+🏃‍♂️ **Run the script**:
 
 ```bash
 poetry run python 03_structured_llm_extraction/03_structured_batch_validated.py

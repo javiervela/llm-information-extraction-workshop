@@ -12,18 +12,14 @@
 
 ## 1. 📦 Running Your First Local LLM Script
 
-Run a Python script that asks the LLM a simple question and prints the response.
+In this exercise we will:
 
-### **1.1 Example Script**
+1. Run a Python script that asks the LLM a simple question
+2. Prints the response.
 
-The script </> [`01_simple_extractor.py`](./01_simple_extractor.py) does the following:
+</> **See the script** [`01_simple_extractor.py`](./01_simple_extractor.py).
 
-- Sends a simple question to the LLM
-- Prints the response.
-
-### **1.2 Run the Script**
-
-Make sure `ollama serve` is running, then:
+🏃‍♂️ **Run the script**:
 
 ```bash
 poetry run python 02_basic_llm_extraction/01_simple_extractor.py
@@ -39,13 +35,15 @@ Model response: 'Pride and Prejudice' was written by Jane Austen.
 
 ## 2. 🗂️ Batch Processing with Prompt Templates
 
+In this exercise we will:
+
 1. Read book titles from a file.
 2. Use a prompt template to request structured info.
 3. Save all responses to an output file.
 
-### **2.1 Input File**
+The script expects a plain text file containing a list of book titles.
 
-`data/book_names.txt`:
+📄 **See the file** [`data/book_names.txt`](./data/book_names.txt) that looks like:
 
 ```txt
 Pride and Prejudice
@@ -53,15 +51,9 @@ Pride and Prejudice
 The Hobbit
 ```
 
-### **2.2 Example Script**
+</> **See the script** [`02_batch_query.py`](./02_batch_query.py).
 
-The script </> [`02_batch_query.py`](./02_batch_query.py) does the following:
-
-- Reads book titles from a TXT file.
-- Uses a prompt template to query the LLM for structured information.
-- Saves all responses to an output file.
-
-### **2.3 Run the Script**
+🏃‍♂️ **Run the script**:
 
 ```bash
 poetry run python 02_basic_llm_extraction/02_batch_query.py
