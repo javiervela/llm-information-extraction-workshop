@@ -12,15 +12,25 @@
 
 ## 🔍 Manual JSON vs Pydantic
 
-# TODO add more explanation to the table and maybe other parts and modules
+When extracting structured data from LLMs, you have two main approaches: manual JSON parsing and schema-based validation with Pydantic. Each has its strengths and trade-offs:
 
-| Method                         | Pros                                                | Cons                                                      |
-| ------------------------------ | --------------------------------------------------- | --------------------------------------------------------- |
-| **Manual JSON (`json.loads`)** | Simple and quick to implement                       | Fails silently if output is malformed; no type validation |
-| **Pydantic**                   | ✅ Ensures well-formed and valid data before saving | Requires defining a schema                                |
+| Method          | Pros                                             | Cons                                                      |
+| --------------- | ------------------------------------------------ | --------------------------------------------------------- |
+| **Manual JSON** | Simple and quick to implement                    | Fails silently if output is malformed; no type validation |
+| **Pydantic**    | Ensures well-formed and valid data before saving | Requires defining a schema                                |
 
-**Why Pydantic?**
-_"Pydantic ensures the LLM outputs are well-formed and valid before saving."_
+**Manual JSON Parsing:**  
+This approach is fast and easy to set up. You simply ask the LLM for JSON and parse it with `json.loads()`. However, if the LLM returns malformed or unexpected data, your code may break or, worse, accept invalid data without warning. There’s no guarantee that types or required fields are correct.
+
+**Pydantic Validation:**  
+Pydantic lets you define a schema for your expected data. When you validate LLM output against this schema, you catch errors early—missing fields, wrong types, or malformed structures. This makes your extraction pipeline much more robust and reliable, especially as you scale to batch processing or more complex data.
+
+**Ollama Library Integration:**  
+The Ollama library supports automatic validation of LLM responses against Pydantic models. This means you can directly enforce schema validation as part of your workflow, reducing manual checks and further improving reliability.
+
+**Why Pydantic?**  
+_"Pydantic ensures the LLM outputs are well-formed and valid before saving."_  
+By enforcing a schema, you reduce bugs, improve data quality, and make downstream processing safer and easier.
 
 ---
 
