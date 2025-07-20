@@ -79,7 +79,7 @@ The script </> [`02_structured_single_validated.py`](./02_structured_single_vali
 Make sure your Ollama server is running (`ollama serve`). Then execute:
 
 ```bash
-poetry run python 03_advanced_llm_jobs/02_structured_single_validated.py
+poetry run python 03_structured_llm_extraction/02_structured_single_validated.py
 ```
 
 ✅ **Expected output:**
@@ -117,7 +117,7 @@ This script </> [`03_structured_batch_validated.py`](./03_structured_batch_valid
 Make sure your Ollama server is running (`ollama serve`). Then execute:
 
 ```bash
-poetry run python 03_advanced_llm_jobs/03_structured_batch_validated.py
+poetry run python 03_structured_llm_extraction/03_structured_batch_validated.py
 ```
 
 ✅ **Expected output:**
