@@ -28,9 +28,6 @@ Define a schema and validate LLM output, catching missing fields or wrong types 
 **Ollama Integration:**  
 Ollama can automatically validate LLM responses against Pydantic models, streamlining schema enforcement and improving reliability.
 
-**Why Pydantic?**  
-Enforcing a schema reduces bugs, improves data quality, and makes downstream processing safer.
-
 ---
 
 ## 1. 📦 Basic Manual JSON Parsing
