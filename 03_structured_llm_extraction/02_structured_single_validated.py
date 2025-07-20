@@ -5,7 +5,7 @@ from typing import List
 
 # Define the model, review, and prompt template
 MODEL_NAME = "gemma3"
-REVIEW = "George Orwell’s '1984' is a chilling dystopian masterpiece from 1949 that feels frighteningly relevant today."
+REVIEW = "George Orwell's '1984' is a chilling dystopian masterpiece from 1949 that feels frighteningly relevant today."
 PROMPT_TEMPLATE = "Extract the book information from this review: {review}. "
 
 # Format the prompt using the template

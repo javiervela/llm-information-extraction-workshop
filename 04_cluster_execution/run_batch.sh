@@ -36,5 +36,4 @@ echo "Ollama server is running."
 
 # Run the Python script
 cd $HOME/llm-information-extraction-workshop
-alias poetry="$HOME/.local/bin/poetry"
-poetry run python 04_cluster_execution/01_test_interactive.py
+$HOME/.local/bin/poetry run python 04_cluster_execution/01_test_interactive.py
