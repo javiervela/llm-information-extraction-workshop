@@ -28,9 +28,6 @@ Define a schema and validate LLM output, catching missing fields or wrong types 
 **Ollama Integration:**  
 Ollama can automatically validate LLM responses against Pydantic models, streamlining schema enforcement and improving reliability.
 
-**Why Pydantic?**  
-Enforcing a schema reduces bugs, improves data quality, and makes downstream processing safer.
-
 ---
 
 ## 1. 📦 Basic Manual JSON Parsing
@@ -105,7 +102,7 @@ Jane Austen’s 'Pride and Prejudice' is a timeless romantic classic that brilli
 poetry run python 03_structured_llm_extraction/03_structured_batch_validated.py
 ```
 
-✅ **See the expected output** in TXCSVT file [`data/book_reviews_response.csv`](../data/book_reviews_response.csv).
+✅ **See the expected output** in CSV file [`data/book_reviews_response.csv`](../data/book_reviews_response.csv).
 
 ---
 

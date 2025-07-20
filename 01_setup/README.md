@@ -33,8 +33,6 @@ ollama serve
 > ollama serve
 > ```
 
----
-
 ### **1.2 Explore & Pull Models**
 
 Browse available models: [https://ollama.com/library](https://ollama.com/library)
