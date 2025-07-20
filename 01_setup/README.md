@@ -25,12 +25,13 @@ ollama serve
 
 ✅ **If running correctly:** You will see logs confirming the server is listening locally.
 
-⚠ **If the default port is already in use:** run:
-
-```bash
-export OLLAMA_HOST=127.0.0.1:11433  # Change to any free port
-ollama serve
-```
+> 💡 **Tip:**
+> If the default port (11434) is busy, change it with:
+>
+> ```bash
+> export OLLAMA_HOST=127.0.0.1:11433
+> ollama serve
+> ```
 
 ---
 
@@ -133,7 +134,7 @@ SSH into the cluster:
 ssh your_user@ft3.cesga.es
 ```
 
-> 🗒️ **Note**:  
+> 💡 **Tip:**  
 > To simplify connections, add the following to your `~/.ssh/config`:
 >
 > ```

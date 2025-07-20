@@ -105,13 +105,7 @@ Jane Austen’s 'Pride and Prejudice' is a timeless romantic classic that brilli
 poetry run python 03_structured_llm_extraction/03_structured_batch_validated.py
 ```
 
-✅ **Expected output:**
-
-```txt
-Saved 3 valid entries to data/book_reviews_response.csv and logged 0 errors.
-```
-
-The generated CSV will look similar to:
+✅ **Expected output** in CSV file `data/book_reviews_response.csv`:
 
 ```csv
 title,author,genre,publication_year,sentiment_positive

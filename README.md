@@ -21,7 +21,7 @@ By the end of this workshop, you will:
 
 - Basic knowledge of Python programming.
 - Familiarity with command-line operations.
-- CESGA FinisTerrae III account (only required for cluster execution).
+- Modules 1–3 can be done locally; Module 4 requires CESGA FinisTerrae III access.
 
 ---
 

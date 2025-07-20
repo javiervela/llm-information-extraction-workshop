@@ -60,7 +60,7 @@ The Hobbit
 poetry run python 02_basic_llm_extraction/02_batch_query.py
 ```
 
-✅ **Expected output:**
+✅ **Expected output** in TXT file `data/book_authors_response.txt`:
 
 ```txt
 Pride and Prejudice: Written by Jane Austen, it is a classic romance novel first published in 1813.

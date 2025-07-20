@@ -31,6 +31,11 @@ cd llm-information-extraction-workshop
 
 ### **1.2 Configure Storage for Ollama & Poetry**
 
+Configure Ollama and Poetry to use the CESGA additional storage systems to not exceed the `HOME` filesystem quota.
+
+> 🗒️ **Note:**
+> Having the Poetry storage on the `STORE` filesystem is recommended by CESGA, but it can slow down the installation process. If you prefer to use the `HOME` filesystem, you can skip this step.
+
 ```bash
 mkdir -p $LUSTRE/.ollama
 ln -sfn $LUSTRE/.ollama $HOME/.ollama
@@ -40,14 +45,11 @@ mkdir -p $HOME/.cache
 ln -sfn $STORE/.cache/pypoetry $HOME/.cache/pypoetry
 ```
 
-> 🗒️ **Note**:
-> Having the Poetry storage on the `STORE` filesystem is recommended by CESGA to avoid file system quota issues, but it can slow down the installation process. If you prefer to use the `HOME` filesystem, you can skip this step.
-
 ### **1.3 Load Required Modules**
 
 CESGA uses environment modules to manage software versions, allowing users to easily load and switch between different tools.
 
-> 🗒️ **Note**:
+> 💡 **Tip:**
 > The current Ollama version may not support the latest models available in the Ollama library.
 >
 > If you need a different Ollama version, contact CESGA support at [aplicaciones@cesga.es](mailto:aplicaciones@cesga.es) and specify your requirements.
@@ -79,7 +81,7 @@ Warning: client version is 0.6.4
 
 We are going to run a simple interactive test to ensure everything is set up correctly before submitting batch jobs.
 
-> 🗒️ **Note**:
+> 🗒️ **Note:**
 > The setup (pulling LLM models) can be done from any login node, but the actual execution of LLM extraction scripts should be done on a GPU node for performance.
 
 ### **2.1 Start a GPU Session**
@@ -109,7 +111,7 @@ export OLLAMA_TMPDIR=$TMPDIR
 ollama serve &
 ```
 
-> 🗒️ **Note**:
+> 🗒️ **Note:**
 > The Ollama server runs on port `11434` by default. On shared nodes, this port may be busy if another process is already using it. To avoid conflicts, it’s advisable to set the `OLLAMA_HOST` environment variable dynamically, for example by using a port based on your job ID:
 >
 > ```bash
@@ -134,7 +136,7 @@ Install the required Python packages using Poetry:
 poetry install
 ```
 
-> 🗒️ **Note**:
+> 🗒️ **Note:**
 > If the poetry installation fails, you can try installing in CESGA the latest version of Poetry manually.
 >
 > To install Poetry manually, run:
@@ -165,7 +167,7 @@ poetry run python 04_cluster_execution/01_test_interactive.py
 Model response: 'Pride and Prejudice' was written by Jane Austen.
 ```
 
-> 🗒️ **Note**:
+> 🗒️ **Note:**
 > Make sure you stop the Ollama server after running the script:
 >
 > ```bash
@@ -197,7 +199,7 @@ sbatch \
     04_cluster_execution/run_batch.sh
 ```
 
-> 🗒️ **Note**:
+> 💡 **Tip:**
 > You can pass SBATCH options directly to `sbatch` to parameterize your job with variables and pass arguments to the script.
 
 🔍 **Monitor job Status**:
