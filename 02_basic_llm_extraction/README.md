@@ -39,7 +39,7 @@ You will process multiple inputs using prompt templates to extract structured in
 
 The script expects a plain text file containing a list of book titles.
 
-📄 **See the file** [`data/book_names.txt`](./data/book_names.txt) that looks like:
+📄 **See the file** [`data/book_names.txt`](../data/book_names.txt) that looks like:
 
 ```txt
 Pride and Prejudice
@@ -60,15 +60,7 @@ The Hobbit
 poetry run python 02_basic_llm_extraction/02_batch_query.py
 ```
 
-✅ **Expected output** in TXT file `data/book_authors_response.txt`:
-
-```txt
-Pride and Prejudice: Written by Jane Austen, it is a classic romance novel first published in 1813.
-1984: Written by George Orwell, it is a dystopian political fiction first published in 1949.
-The Hobbit: Written by J.R.R. Tolkien, it is a fantasy adventure first published in 1937.
-```
-
----
+✅ **See the expected output** in TXT file [`data/book_authors_response.txt`](../data/book_authors_response.txt).
 
 ## 📝 Module Recap
 

@@ -85,7 +85,7 @@ Parsed data: title='1984' author='George Orwell' genre=['dystopian', 'political 
 
 You will process multiple reviews, validate each, save valid entries to a CSV, and log invalid ones.
 
-📄 **See the file** `data/book_reviews.txt` that contains:
+📄 **See the file** [`data/book_reviews.txt`](../data/book_reviews.txt) that contains:
 
 ```txt
 I loved Tolkien’s fantasy classic 'The Hobbit', first published in 1937. Such a charming adventure!
@@ -105,14 +105,7 @@ Jane Austen’s 'Pride and Prejudice' is a timeless romantic classic that brilli
 poetry run python 03_structured_llm_extraction/03_structured_batch_validated.py
 ```
 
-✅ **Expected output** in CSV file `data/book_reviews_response.csv`:
-
-```csv
-title,author,genre,publication_year,sentiment_positive
-The Hobbit,J.R.R. Tolkien,"['fantasy', 'adventure']",1937,True
-1984,George Orwell,"['dystopian', 'political fiction']",1949,True
-Pride and Prejudice,Jane Austen,"['romance', 'classic']",1813,True
-```
+✅ **See the expected output** in TXCSVT file [`data/book_reviews_response.csv`](../data/book_reviews_response.csv).
 
 ---
 
