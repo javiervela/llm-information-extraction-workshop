@@ -181,9 +181,9 @@ Model response: 'Pride and Prejudice' was written by Jane Austen.
 
 </> **See the script** [`run_batch.sh`](./run_batch.sh) that does the following:
 
-- Starts the Ollama server.
-- Handles retries if the server is not ready.
-- Runs the LLM extraction script.
+1. Starts the Ollama server.
+2. Handles retries if the server is not ready.
+3. Runs the LLM extraction script.
 
 🚀 **Submit the job**:
 
@@ -198,7 +198,7 @@ sbatch \
 ```
 
 > 🗒️ **Note**:
-> You can pass SBATCH options directly to `sbatch` to parameterize your job with variables.
+> You can pass SBATCH options directly to `sbatch` to parameterize your job with variables and pass arguments to the script.
 
 🔍 **Monitor job Status**:
 

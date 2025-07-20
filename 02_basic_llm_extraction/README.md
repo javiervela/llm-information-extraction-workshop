@@ -12,12 +12,12 @@
 
 ## 1. 📦 Running Your First Local LLM Script
 
-In this exercise we will:
+You will run a simple Python script that interacts with a local LLM using Ollama.
 
-1. Run a Python script that asks the LLM a simple question
+</> **See the script** [`01_simple_extractor.py`](./01_simple_extractor.py) that does the following:
+
+1. Prompts the LLM to return a simple fact.
 2. Prints the response.
-
-</> **See the script** [`01_simple_extractor.py`](./01_simple_extractor.py).
 
 🏃‍♂️ **Run the script**:
 
@@ -35,11 +35,7 @@ Model response: 'Pride and Prejudice' was written by Jane Austen.
 
 ## 2. 🗂️ Batch Processing with Prompt Templates
 
-In this exercise we will:
-
-1. Read book titles from a file.
-2. Use a prompt template to request structured info.
-3. Save all responses to an output file.
+You will process multiple inputs using prompt templates to extract structured information from the LLM.
 
 The script expects a plain text file containing a list of book titles.
 
@@ -51,7 +47,12 @@ Pride and Prejudice
 The Hobbit
 ```
 
-</> **See the script** [`02_batch_query.py`](./02_batch_query.py).
+</> **See the script** [`02_batch_query.py`](./02_batch_query.py) that does the following:
+
+1. Reads the book titles from the text file.
+2. Uses a prompt template to format the query for each title.
+3. Sends the query to the LLM and prints the response.
+4. Saves the responses to a file.
 
 🏃‍♂️ **Run the script**:
 

@@ -12,37 +12,36 @@
 
 ## 🔍 Manual JSON vs Pydantic
 
-When extracting structured data from LLMs, you have two main approaches: manual JSON parsing and schema-based validation with Pydantic. Each has its strengths and trade-offs:
+When extracting structured data from LLMs, you can use manual JSON parsing or schema-based validation with Pydantic:
 
-| Method          | Pros                                             | Cons                                                      |
-| --------------- | ------------------------------------------------ | --------------------------------------------------------- |
-| **Manual JSON** | Simple and quick to implement                    | Fails silently if output is malformed; no type validation |
-| **Pydantic**    | Ensures well-formed and valid data before saving | Requires defining a schema                                |
+| Method          | Pros                                   | Cons                           |
+| --------------- | -------------------------------------- | ------------------------------ |
+| **Manual JSON** | Quick to implement                     | No type checks; fails silently |
+| **Pydantic**    | Validates structure and types reliably | Requires schema definition     |
 
 **Manual JSON Parsing:**  
-This approach is fast and easy to set up. You simply ask the LLM for JSON and parse it with `json.loads()`. However, if the LLM returns malformed or unexpected data, your code may break or, worse, accept invalid data without warning. There’s no guarantee that types or required fields are correct.
+Fast and simple—just parse with `json.loads()`. But malformed or unexpected data can slip through, risking errors or silent failures.
 
 **Pydantic Validation:**  
-Pydantic lets you define a schema for your expected data. When you validate LLM output against this schema, you catch errors early—missing fields, wrong types, or malformed structures. This makes your extraction pipeline much more robust and reliable, especially as you scale to batch processing or more complex data.
+Define a schema and validate LLM output, catching missing fields or wrong types early. This makes extraction robust, especially for batch or complex data.
 
-**Ollama Library Integration:**  
-The Ollama library supports automatic validation of LLM responses against Pydantic models. This means you can directly enforce schema validation as part of your workflow, reducing manual checks and further improving reliability.
+**Ollama Integration:**  
+Ollama can automatically validate LLM responses against Pydantic models, streamlining schema enforcement and improving reliability.
 
 **Why Pydantic?**  
-_"Pydantic ensures the LLM outputs are well-formed and valid before saving."_  
-By enforcing a schema, you reduce bugs, improve data quality, and make downstream processing safer and easier.
+Enforcing a schema reduces bugs, improves data quality, and makes downstream processing safer.
 
 ---
 
 ## 1. 📦 Basic Manual JSON Parsing
 
-You will prompt the LLM to return structured JSON explicitly and parse it manually with `json.loads()`. This is the simplest approach and shows why better validation is needed.
+You will prompt the LLM to return structured JSON explicitly and parse it manually with `json.loads()`.
 
 </> **See the script** [`01_structured_basic.py`](./01_structured_basic.py) that does the following:
 
-- Builds a prompt explicitly requesting JSON.
-- Calls the LLM and manually parses the JSON with `json.loads()`.
-- Prints the parsed dictionary or an error if the output isn’t valid JSON.
+1. Builds a prompt explicitly requesting JSON.
+2. Calls the LLM and manually parses the JSON with `json.loads()`.
+3. Prints the parsed dictionary or an error if the output isn’t valid JSON.
 
 🏃‍♂️ **Run the script**:
 
@@ -64,9 +63,9 @@ You will use a **Pydantic model** to ensure the LLM returns correctly structured
 
 </> **See the script** [`02_structured_single_validated.py`](./02_structured_single_validated.py) that does the following:
 
-- Defines a `BookReview` Pydantic model.
-- Uses `format=BookReview.model_json_schema()` to guide the LLM.
-- Validates the response with `model_validate_json()` and prints the structured object.
+1. Defines a `BookReview` Pydantic model.
+2. Uses `format=BookReview.model_json_schema()` to guide the LLM.
+3. Validates the response with `model_validate_json()` and prints the structured object.
 
 🏃‍♂️ **Run the script**:
 
@@ -96,9 +95,9 @@ Jane Austen’s 'Pride and Prejudice' is a timeless romantic classic that brilli
 
 </> **See the script** [`03_structured_batch_validated.py`](./03_structured_batch_validated.py) that does the following:
 
-- Reads reviews from the input file.
-- Validates each response with Pydantic.
-- Saves valid entries to a CSV file and logs invalid ones to a separate error file.
+1. Reads reviews from the input file.
+2. Validates each response with Pydantic.
+3. Saves valid entries to a CSV file and logs invalid ones to a separate error file.
 
 🏃‍♂️ **Run the script**:
 
