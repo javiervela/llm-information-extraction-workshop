@@ -5,8 +5,8 @@
 #SBATCH -J llm_extraction_test
 #SBATCH -c 32
 #SBATCH --gres=gpu:a100:1
-#SBATCH -t 00:30:00
-#SBATCH --mem=64G
+#SBATCH -t 00:05:00
+#SBATCH --mem=3G
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=jvela@ipe.csic.es
 
@@ -14,10 +14,7 @@ module load cesga/2022 ollama/0.6.4 python/3.10.8
 
 export OLLAMA_HOST="127.0.0.1:11434"
 export OLLAMA_TMPDIR=$TMPDIR
-export LOG_DIR=$HOME/llm-information-extraction-workshop/log
 export MAX_RETRIES=5
-
-mkdir -p $LOG_DIR
 
 ollama serve >$LOG_DIR/ollama_server.log 2>&1 &
 
