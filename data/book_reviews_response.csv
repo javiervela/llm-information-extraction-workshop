@@ -1,0 +1,4 @@
+title,author,genre,publication_year,sentiment_positive
+The Hobbit,Tolkien,['fantasy'],1937,True
+1984,George Orwell,['dystopian'],1949,True
+Pride and Prejudice,Jane Austen,"['romantic classic', 'social critique']",1813,True
