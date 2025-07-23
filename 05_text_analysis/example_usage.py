@@ -9,12 +9,13 @@ from pathlib import Path
 from long_text_analyzer import LongTextAnalyzer
 from interview_analyzer import InterviewAnalyzer
 
+
 def example_basic_text_analysis():
     """Ejemplo básico de análisis de texto largo"""
     print("=" * 60)
     print("📝 EJEMPLO 1: Análisis Básico de Texto Largo")
     print("=" * 60)
-    
+
     # Texto de ejemplo
     sample_text = """
     La inteligencia artificial (IA) ha experimentado un crecimiento exponencial en los últimos años,
@@ -38,39 +39,40 @@ def example_basic_text_analysis():
     sistemas inteligentes en nuestra infraestructura digital. La colaboración entre humanos y
     máquinas probablemente definirá la próxima era de la innovación tecnológica.
     """
-    
+
     # Crear analizador
     analyzer = LongTextAnalyzer(model_name="llama3.1")
-    
+
     try:
         # Realizar análisis
         analysis = analyzer.analyze_text(sample_text)
-        
+
         # Mostrar resultados
         print(f"🎯 Palabras clave encontradas: {len(analysis.keywords)}")
         print(f"   {', '.join(analysis.keywords[:5])}...")
-        
+
         print(f"\n🏷️ Temas principales: {len(analysis.key_topics)}")
         for i, topic in enumerate(analysis.key_topics[:3], 1):
             print(f"   {i}. {topic}")
-        
+
         print(f"\n📊 Estadísticas:")
         print(f"   • Palabras: {analysis.word_count}")
         print(f"   • Tiempo de lectura: {analysis.reading_time} min")
         print(f"   • Sentimiento: {analysis.sentiment}")
-        
+
         print(f"\n📋 Resumen (primeras 150 caracteres):")
         print(f"   {analysis.summary[:150]}...")
-        
+
     except Exception as e:
         print(f"❌ Error en el análisis: {e}")
+
 
 def example_interview_analysis():
     """Ejemplo de análisis especializado de entrevista"""
     print("\n" + "=" * 60)
     print("🎤 EJEMPLO 2: Análisis de Entrevista")
     print("=" * 60)
-    
+
     # Transcripción de entrevista de ejemplo
     interview_text = """
     ENTREVISTADOR: Buenos días, muchas gracias por acompañarnos. ¿Podrías comenzar contándonos
@@ -109,44 +111,46 @@ def example_interview_analysis():
     su presencia internacional presenta desafíos únicos de escalabilidad que realmente me
     motivan a contribuir.
     """
-    
+
     # Crear analizador de entrevistas
     interview_analyzer = InterviewAnalyzer(model_name="llama3.1")
-    
+
     try:
         # Realizar análisis especializado
         analysis = interview_analyzer.analyze_interview(interview_text)
-        
+
         # Mostrar resultados
         print(f"🏷️ Tipo de entrevista: {analysis.interview_type}")
         print(f"⏱️ Duración estimada: {analysis.duration_estimate} minutos")
         print(f"🤝 Estilo de interacción: {analysis.interaction_style}")
         print(f"😊 Sentimiento general: {analysis.sentiment}")
-        
+
         if analysis.speakers:
             print(f"\n👥 Participantes identificados:")
             for speaker in analysis.speakers:
                 print(f"   • {speaker}")
-        
+
         print(f"\n💡 Insights principales:")
         for i, insight in enumerate(analysis.main_insights[:3], 1):
             print(f"   {i}. {insight}")
-        
+
         print(f"\n💬 Citas destacadas:")
         for i, quote in enumerate(analysis.quotes_highlights[:2], 1):
             print(f'   {i}. "{quote[:100]}..."')
-            
+
         print(f"\n❓ Temas de preguntas/discusión:")
         for i, theme in enumerate(analysis.questions_themes, 1):
             print(f"   {i}. {theme}")
-            
+
     except Exception as e:
         print(f"❌ Error en el análisis de entrevista: {e}")
+
 
 def main():
     """Función principal para ejecutar los ejemplos"""
     example_basic_text_analysis()
     example_interview_analysis()
+
 
 if __name__ == "__main__":
     main()
