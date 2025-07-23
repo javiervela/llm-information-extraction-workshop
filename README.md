@@ -21,7 +21,7 @@ By the end of this workshop, you will:
 
 - Basic knowledge of Python programming.
 - Familiarity with command-line operations.
-- Modules 1–3 can be done locally; Module 4 requires CESGA FinisTerrae III access.
+- Modules 1–3 and 5 can be done locally; Module 4 requires CESGA FinisTerrae III access.
 
 ---
 
@@ -31,6 +31,7 @@ By the end of this workshop, you will:
 2. **[Module 2](02_basic_llm_extraction/)** – Run your first extraction jobs with Ollama.
 3. **[Module 3](03_structured_llm_extraction/)** – Validate and save structured outputs.
 4. **[Module 4](04_cluster_execution/)** – Run your scripts on CESGA GPUs.
+5. **[Module 5](05_text_analysis/)** – Analyze long texts and interview transcripts.
 
 ---
 
@@ -42,6 +43,7 @@ By the end of this workshop, you will:
 | `02_basic_llm_extraction/`      | Basic local LLM queries & batch jobs    |
 | `03_structured_llm_extraction/` | Structured data extraction & validation |
 | `04_cluster_execution/`         | CESGA cluster job scripts               |
+| `05_text_analysis/`             | Long text and interview analysis        |
 | `data/`                         | Sample texts and outputs                |
 
 ---
