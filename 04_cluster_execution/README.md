@@ -237,4 +237,4 @@ Model response:
 
 ## 🔗 Navigation
 
-⬅ [Module 3: Structured LLM Extraction](../03_structured_llm_extraction/README.md) | 🏠 [Home](../README.md)
+⬅ [Module 3: Structured LLM Extraction](../03_structured_llm_extraction/README.md) | 🏠 [Home](../README.md) | ➡ [Module 5: Long Text Analysis](../05_text_analysis/README.md)
