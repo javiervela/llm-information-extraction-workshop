@@ -5,6 +5,7 @@ Este módulo extiende el workshop de extracción de información con capacidades
 ## 🚀 Características
 
 ### Analizador General (`long_text_analyzer.py`)
+
 - **Procesamiento de textos largos**: Maneja documentos extensos dividiendo el contenido en chunks manejables
 - **Extracción de palabras clave**: Identifica términos y frases más relevantes
 - **Resumen detallado**: Genera síntesis comprehensivas manteniendo información crucial
@@ -14,89 +15,13 @@ Este módulo extiende el workshop de extracción de información con capacidades
 - **Estadísticas**: Conteo de palabras y tiempo de lectura estimado
 
 ### Analizador Especializado de Entrevistas (`interview_analyzer.py`)
+
 - **Clasificación de entrevistas**: Identifica el tipo (laboral, periodística, académica, etc.)
 - **Extracción de insights**: Encuentra revelaciones y puntos clave
 - **Citas destacadas**: Identifica declaraciones impactantes y memorables
 - **Análisis de preguntas**: Categoriza temas de las preguntas realizadas
 - **Estilo de interacción**: Evalúa dinámicas comunicacionales
 - **Estimación de duración**: Calcula tiempo aproximado de la entrevista
-
-## 📋 Requisitos
-
-### Prerequisitos del Sistema
-- Python 3.8+
-- Ollama instalado y ejecutándose
-- Modelo LLM descargado (recomendado: `llama3.1`, `llama3.2`, o `mixtral`)
-
-### Dependencias Python
-
-1. Usando pip:
-
-```bash
-# a. con pip
-pip install -r requirements.txt
-```
-
-2. Usando poetry:
-
-- Se han aplicado cambios en el archivo `pyproject.toml`.
-    - añadido `dependencies = [..., "requests>=2.28.0"]`
-- Se puede eliminar el archivo `requirements.txt`.
-- Ejecutando el comando de Poetry en tu terminal se instalarán las dependencias correctas:
-
-```bash
-poetry install
-```
-
-## 🔧 Instalación
-
-1. **Instalar Ollama** 
-
-2. **Comprobar que tienes descargado un modelo**
-
-    - para este ejemplo se sugiere `llama3.1`, `llama3.2` o `mixtral`
-
-
-<!-- REVISAR 
-
-1. **Instalar Ollama** (si no lo tienes):
-```bash
-# En macOS/Linux
-curl -fsSL https://ollama.ai/install.sh | sh
-
-# En Windows, descargar desde https://ollama.ai
-```
-
-2. **Descargar un modelo**:
-
-```bash
-ollama pull llama3.1
-# o
-ollama pull llama3.2
-# o 
-ollama pull mixtral
-```
-
-Ya está explicado como descargar gemma3
-
--->
-
-3. **Clonar los archivos del módulo** en tu directorio del workshop:
-```
-llm-information-extraction-workshop/
-├── modules/
-│   ├── long_text_analyzer.py
-│   ├── interview_analyzer.py
-│   └── requirements.txt
-└── examples/
-    └── sample_interview.txt
-```
-
-4. **Instalar dependencias**:
-```bash
-cd modules
-pip install -r requirements.txt
-```
 
 ## 🎯 Uso
 
@@ -129,12 +54,14 @@ python interview_analyzer.py transcripcion_entrevista.txt -o analisis_entrevista
 ## 📄 Formatos de Entrada
 
 ### Texto Plano
+
 ```
 Este es un documento largo que queremos analizar...
 El contenido puede incluir múltiples párrafos...
 ```
 
 ### Transcripción de Entrevista
+
 ```
 ENTREVISTADOR: ¿Cuál es tu experiencia en el campo?
 
@@ -146,42 +73,51 @@ ENTREVISTADOR: Interesante, ¿podrías contarme más sobre...
 ## 📊 Ejemplo de Salida
 
 ### Reporte General
+
 ```markdown
 # REPORTE DE ANÁLISIS DE TEXTO LARGO
 
 ## 📊 ESTADÍSTICAS GENERALES
+
 - **Número de palabras**: 2,547
 - **Tiempo de lectura estimado**: 13 minutos
 - **Sentimiento general**: Neutral
 
 ## 🎯 PALABRAS CLAVE
+
 inteligencia artificial, machine learning, datos, algoritmos, tecnología
 
 ## 🏷️ TEMAS PRINCIPALES
+
 • Desarrollo de inteligencia artificial
 • Impacto en la industria tecnológica
 • Desafíos éticos y regulatorios
 • Futuro de la automatización
 
 ## 📋 RESUMEN DETALLADO
+
 El documento aborda los avances recientes en inteligencia artificial...
 ```
 
 ### Reporte de Entrevista
+
 ```markdown
 # REPORTE DE ANÁLISIS DE ENTREVISTA
 
 ## 📊 INFORMACIÓN GENERAL
+
 - **Tipo de entrevista**: Entrevista laboral
 - **Duración estimada**: 25 minutos
 - **Estilo de interacción**: Formal colaborativo
 
 ## 💡 INSIGHTS PRINCIPALES
+
 • El candidato tiene experiencia sólida en desarrollo backend
 • Muestra interés genuino por el aprendizaje continuo
 • Destaca su capacidad de trabajo en equipo
 
 ## 💬 CITAS DESTACADAS
+
 • "Mi pasión por la tecnología me impulsa a estar siempre actualizado"
 • "Creo que la colaboración es clave para el éxito de cualquier proyecto"
 ```
@@ -189,6 +125,7 @@ El documento aborda los avances recientes en inteligencia artificial...
 ## ⚙️ Configuración Avanzada
 
 ### Personalizar Parámetros del Modelo
+
 Puedes modificar los parámetros en el código:
 
 ```python
@@ -210,6 +147,7 @@ payload = {
 ```
 
 ### Ajustar Tamaño de Chunks
+
 ```python
 # En la clase LongTextAnalyzer
 self.max_chunk_size = 4000  # Ajustar según el modelo
@@ -218,6 +156,7 @@ self.max_chunk_size = 4000  # Ajustar según el modelo
 ## 🚨 Solución de Problemas
 
 ### Error de Conexión con Ollama
+
 ```bash
 # Verificar que Ollama está ejecutándose
 ollama list
@@ -227,6 +166,7 @@ ollama serve
 ```
 
 ### Modelo No Encontrado
+
 ```bash
 # Listar modelos disponibles
 ollama list
@@ -236,11 +176,13 @@ ollama pull llama3.1
 ```
 
 ### Memoria Insuficiente
+
 - Usar modelos más pequeños: `llama3.2:1b`
 - Reducir `max_chunk_size` en el código
 - Procesar textos más cortos
 
 ### Análisis Lento
+
 - Usar modelos más rápidos pero menos precisos
 - Reducir el tamaño de los chunks
 - Procesar en paralelo (modificación avanzada)
@@ -266,21 +208,25 @@ interview_analysis = interview_analyzer.analyze_interview(transcripcion)
 ## 🎨 Casos de Uso
 
 ### Investigación Académica
+
 - Análisis de transcripciones de focus groups
 - Resumen de documentos de investigación largos
 - Extracción de temas de entrevistas cualitativas
 
 ### Periodismo y Medios
+
 - Análisis de entrevistas periodísticas
 - Resumen de conferencias de prensa
 - Extracción de quotes destacados
 
 ### Recursos Humanos
+
 - Análisis de entrevistas laborales
 - Evaluación de feedback de empleados
 - Procesamiento de encuestas abiertas
 
 ### Consultoría y Negocios
+
 - Análisis de transcripciones de reuniones
 - Procesamiento de feedback de clientes
 - Resumen de documentos corporativos
@@ -305,16 +251,3 @@ class CustomAnalyzer(LongTextAnalyzer):
 - [ ] Integración con bases de datos
 - [ ] API REST para uso remoto
 - [ ] Interfaz web para análisis interactivo
-
-## 🤝 Contribuciones
-
-Este módulo es parte del workshop de extracción de información. Para contribuir:
-
-1. Fork del repositorio principal
-2. Crear branch para tu feature
-3. Añadir tests si es necesario
-4. Enviar pull request
-
-## 📝 Licencia
-
-Mantiene la misma licencia que el workshop principal.
