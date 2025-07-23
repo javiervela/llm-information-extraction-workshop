@@ -1,7 +1,7 @@
 # interview_analyzer.py
 """
-Analizador especializado para transcripciones de entrevistas
-Extensión del módulo de análisis de textos largos
+Specialized analyzer for interview transcripts
+Extension of the long text analysis module
 """
 
 from long_text_analyzer import LongTextAnalyzer, TextAnalysis
@@ -15,18 +15,18 @@ from pathlib import Path
 
 @dataclass
 class InterviewAnalysis(TextAnalysis):
-    """Extensión del análisis para entrevistas específicamente"""
+    """Extension of analysis specifically for interviews"""
 
     interview_type: str
     main_insights: List[str]
     quotes_highlights: List[str]
     questions_themes: List[str]
     interaction_style: str
-    duration_estimate: int  # en minutos
+    duration_estimate: int  # in minutes
 
 
 class InterviewAnalyzer(LongTextAnalyzer):
-    """Analizador especializado en entrevistas"""
+    """Specialized analyzer for interviews"""
 
     def __init__(
         self, model_name: str = "llama3.1", ollama_url: str = "http://localhost:11434"
@@ -34,49 +34,49 @@ class InterviewAnalyzer(LongTextAnalyzer):
         super().__init__(model_name, ollama_url)
 
     def identify_interview_type(self, text: str) -> str:
-        """Identifica el tipo de entrevista"""
+        """Identifies the type of interview"""
         sample_text = text[:1500]
 
-        system_prompt = "Eres un experto en análisis de entrevistas y comunicación."
+        system_prompt = "You are an expert in interview analysis and communication."
 
         prompt = f"""
-        Basándote en el contenido y estilo de la siguiente transcripción, identifica el tipo de entrevista:
+        Based on the content and style of the following transcript, identify the type of interview:
         
-        OPCIONES:
-        - Entrevista laboral
-        - Entrevista periodística  
-        - Entrevista de investigación
-        - Entrevista clínica/terapéutica
-        - Entrevista académica
-        - Podcast/conversación informal
-        - Otro (especifica)
+        OPTIONS:
+        - Job interview
+        - Journalistic interview  
+        - Research interview
+        - Clinical/therapeutic interview
+        - Academic interview
+        - Podcast/informal conversation
+        - Other (specify)
         
-        TRANSCRIPCIÓN:
+        TRANSCRIPT:
         {sample_text}
         
-        Responde solo con el tipo identificado:
+        Respond only with the identified type:
         """
 
         response = self._call_ollama(prompt, system_prompt)
         return response.strip()
 
     def extract_main_insights(self, text: str) -> List[str]:
-        """Extrae los insights principales de la entrevista"""
-        system_prompt = "Eres un experto en análisis cualitativo de entrevistas."
+        """Extracts the main insights from the interview"""
+        system_prompt = "You are an expert in qualitative interview analysis."
 
         prompt = f"""
-        Analiza la siguiente transcripción de entrevista e identifica los 5-7 insights más importantes o reveladores.
+        Analyze the following interview transcript and identify the 5-7 most important or revealing insights.
         
-        INSTRUCCIONES:
-        - Busca ideas clave, revelaciones, puntos de vista únicos
-        - Incluye conclusiones importantes del entrevistado
-        - Identifica patrones o temas recurrentes
-        - Enfócate en lo más valioso o sorprendente
+        INSTRUCTIONS:
+        - Look for key ideas, revelations, unique points of view
+        - Include important conclusions from the interviewee
+        - Identify recurring patterns or themes
+        - Focus on the most valuable or surprising
         
-        TRANSCRIPCIÓN:
+        TRANSCRIPT:
         {text[:3000]}...
         
-        INSIGHTS PRINCIPALES (uno por línea):
+        MAIN INSIGHTS (one per line):
         """
 
         response = self._call_ollama(prompt, system_prompt)
@@ -88,22 +88,24 @@ class InterviewAnalyzer(LongTextAnalyzer):
         return insights[:7]
 
     def extract_highlight_quotes(self, text: str) -> List[str]:
-        """Extrae las citas más destacadas de la entrevista"""
-        system_prompt = "Eres un experto en identificar citas impactantes y memorables."
+        """Extracts the most outstanding quotes from the interview"""
+        system_prompt = (
+            "You are an expert in identifying impactful and memorable quotes."
+        )
 
         prompt = f"""
-        De la siguiente transcripción de entrevista, identifica las 5-8 citas más impactantes, reveladoras o memorables.
+        From the following interview transcript, identify the 5-8 most impactful, revealing, or memorable quotes.
         
-        CRITERIOS:
-        - Frases que resuman puntos clave
-        - Declaraciones sorprendentes o controversiales  
-        - Citas inspiradoras o emotivas
-        - Frases que capturen la esencia del mensaje
+        CRITERIA:
+        - Phrases that summarize key points
+        - Surprising or controversial statements  
+        - Inspirational or emotional quotes
+        - Phrases that capture the essence of the message
         
-        TRANSCRIPCIÓN:
+        TRANSCRIPT:
         {text[:4000]}...
         
-        Presenta cada cita entre comillas, una por línea:
+        Present each quote in quotation marks, one per line:
         """
 
         response = self._call_ollama(prompt, system_prompt)
@@ -115,26 +117,26 @@ class InterviewAnalyzer(LongTextAnalyzer):
         return quotes[:8]
 
     def analyze_question_themes(self, text: str) -> List[str]:
-        """Analiza los temas de las preguntas realizadas"""
+        """Analyzes the themes of the questions asked"""
         system_prompt = (
-            "Eres un experto en análisis de entrevistas y técnicas de interrogación."
+            "You are an expert in interview analysis and questioning techniques."
         )
 
-        # Intentar identificar preguntas en el texto
+        # Try to identify questions in the text
         question_patterns = re.findall(r"[¿?][^¿?]*[?¿]", text)
-        questions_text = " ".join(question_patterns[:20])  # Primeras 20 preguntas
+        questions_text = " ".join(question_patterns[:20])  # First 20 questions
 
         if not questions_text:
-            # Si no hay patrones de preguntas claros, analizar temas generales
+            # If there are no clear question patterns, analyze general themes
             questions_text = text[:2000]
 
         prompt = f"""
-        Analiza las preguntas o temas tratados en esta entrevista e identifica las 5-6 áreas temáticas principales.
+        Analyze the questions or topics addressed in this interview and identify the 5-6 main thematic areas.
         
-        PREGUNTAS/CONTENIDO:
+        QUESTIONS/CONTENT:
         {questions_text}
         
-        ÁREAS TEMÁTICAS (una por línea):
+        THEMATIC AREAS (one per line):
         """
 
         response = self._call_ollama(prompt, system_prompt)
@@ -146,65 +148,65 @@ class InterviewAnalyzer(LongTextAnalyzer):
         return themes[:6]
 
     def analyze_interaction_style(self, text: str) -> str:
-        """Analiza el estilo de interacción en la entrevista"""
+        """Analyzes the interaction style in the interview"""
         sample_text = text[:2000]
 
         system_prompt = (
-            "Eres un experto en análisis de comunicación y dinámicas interpersonales."
+            "You are an expert in communication analysis and interpersonal dynamics."
         )
 
         prompt = f"""
-        Analiza el estilo de interacción y dinámicas de comunicación en esta entrevista:
+        Analyze the interaction style and communication dynamics in this interview:
         
-        ASPECTOS A CONSIDERAR:
-        - Formalidad vs informalidad
-        - Confrontacional vs colaborativo  
-        - Directivo vs exploratorio
-        - Tenso vs relajado
+        ASPECTS TO CONSIDER:
+        - Formality vs informality
+        - Confrontational vs collaborative  
+        - Directive vs exploratory
+        - Tense vs relaxed
         
-        MUESTRA DE LA TRANSCRIPCIÓN:
+        TRANSCRIPT SAMPLE:
         {sample_text}
         
-        Describe el estilo en 2-3 palabras clave:
+        Describe the style in 2-3 key words:
         """
 
         response = self._call_ollama(prompt, system_prompt)
         return response.strip()
 
     def estimate_interview_duration(self, text: str) -> int:
-        """Estima la duración de la entrevista en minutos"""
+        """Estimates the duration of the interview in minutes"""
         word_count = len(text.split())
-        # Promedio: ~150-180 palabras por minuto en conversación
+        # Average: ~150-180 words per minute in conversation
         estimated_minutes = max(1, word_count // 165)
         return estimated_minutes
 
     def analyze_interview(self, text: str) -> InterviewAnalysis:
-        """Realiza un análisis completo específico para entrevistas"""
-        print("🎤 Iniciando análisis especializado de entrevista...")
+        """Performs a complete analysis specific to interviews"""
+        print("🎤 Starting specialized interview analysis...")
 
-        # Análisis base
+        # Base analysis
         base_analysis = self.analyze_text(text)
 
-        print("🔍 Identificando tipo de entrevista...")
+        print("🔍 Identifying interview type...")
         interview_type = self.identify_interview_type(text)
 
-        print("💡 Extrayendo insights principales...")
+        print("💡 Extracting main insights...")
         main_insights = self.extract_main_insights(text)
 
-        print("💬 Identificando citas destacadas...")
+        print("💬 Identifying highlight quotes...")
         quotes_highlights = self.extract_highlight_quotes(text)
 
-        print("❓ Analizando temas de preguntas...")
+        print("❓ Analyzing question themes...")
         questions_themes = self.analyze_question_themes(text)
 
-        print("🤝 Evaluando estilo de interacción...")
+        print("🤝 Evaluating interaction style...")
         interaction_style = self.analyze_interaction_style(text)
 
-        print("⏱️ Estimando duración...")
+        print("⏱️ Estimating duration...")
         duration_estimate = self.estimate_interview_duration(text)
 
         return InterviewAnalysis(
-            # Campos heredados
+            # Inherited fields
             keywords=base_analysis.keywords,
             summary=base_analysis.summary,
             key_topics=base_analysis.key_topics,
@@ -212,7 +214,7 @@ class InterviewAnalyzer(LongTextAnalyzer):
             word_count=base_analysis.word_count,
             reading_time=base_analysis.reading_time,
             speakers=base_analysis.speakers,
-            # Campos específicos de entrevista
+            # Interview-specific fields
             interview_type=interview_type,
             main_insights=main_insights,
             quotes_highlights=quotes_highlights,
@@ -222,119 +224,117 @@ class InterviewAnalyzer(LongTextAnalyzer):
         )
 
     def save_interview_report(self, analysis: InterviewAnalysis, output_file: str):
-        """Guarda el análisis especializado de entrevista"""
+        """Saves the specialized interview analysis"""
         report = f"""
-# REPORTE DE ANÁLISIS DE ENTREVISTA
+# INTERVIEW ANALYSIS REPORT
 
-## 📊 INFORMACIÓN GENERAL
-- **Tipo de entrevista**: {analysis.interview_type}
-- **Duración estimada**: {analysis.duration_estimate} minutos
-- **Número de palabras**: {analysis.word_count:,}
-- **Estilo de interacción**: {analysis.interaction_style}
-- **Sentimiento general**: {analysis.sentiment}
+## 📊 GENERAL INFORMATION
+- **Interview type**: {analysis.interview_type}
+- **Estimated duration**: {analysis.duration_estimate} minutes
+- **Word count**: {analysis.word_count:,}
+- **Interaction style**: {analysis.interaction_style}
+- **Overall sentiment**: {analysis.sentiment}
 
-{'## 👥 PARTICIPANTES' + chr(10) + chr(10).join([f"• {speaker}" for speaker in analysis.speakers]) + chr(10) if analysis.speakers else ''}
+{'## 👥 PARTICIPANTS' + chr(10) + chr(10).join([f"• {speaker}" for speaker in analysis.speakers]) + chr(10) if analysis.speakers else ''}
 
-## 💡 INSIGHTS PRINCIPALES
+## 💡 MAIN INSIGHTS
 {chr(10).join([f"• {insight}" for insight in analysis.main_insights])}
 
-## 💬 CITAS DESTACADAS
+## 💬 HIGHLIGHT QUOTES
 {chr(10).join([f'• "{quote}"' for quote in analysis.quotes_highlights])}
 
-## ❓ TEMAS DE PREGUNTAS/DISCUSIÓN
+## ❓ QUESTION/DISCUSSION THEMES
 {chr(10).join([f"• {theme}" for theme in analysis.questions_themes])}
 
-## 🎯 PALABRAS CLAVE
+## 🎯 KEYWORDS
 {', '.join(analysis.keywords)}
 
-## 🏷️ TEMAS PRINCIPALES IDENTIFICADOS
+## 🏷️ MAIN IDENTIFIED TOPICS
 {chr(10).join([f"• {topic}" for topic in analysis.key_topics])}
 
-## 📋 RESUMEN EJECUTIVO
+## 📋 EXECUTIVE SUMMARY
 
 {analysis.summary}
 
 ---
-*Reporte generado con Interview Analyzer - Módulo especializado de Ollama*
+*Report generated with Interview Analyzer - Ollama specialized module*
         """
 
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(report.strip())
 
-        print(f"📄 Reporte de entrevista guardado en: {output_file}")
+        print(f"📄 Interview report saved to: {output_file}")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Analizador especializado de entrevistas con Ollama"
+        description="Specialized interview analyzer with Ollama"
     )
-    parser.add_argument("input_file", help="Archivo de transcripción a analizar")
-    parser.add_argument("-o", "--output", help="Archivo de salida para el reporte")
+    parser.add_argument("input_file", help="Transcript file to analyze")
+    parser.add_argument("-o", "--output", help="Output file for the report")
+    parser.add_argument("-m", "--model", default="llama3.1", help="Ollama model to use")
     parser.add_argument(
-        "-m", "--model", default="llama3.1", help="Modelo de Ollama a usar"
-    )
-    parser.add_argument(
-        "--url", default="http://localhost:11434", help="URL del servidor Ollama"
+        "--url", default="http://localhost:11434", help="Ollama server URL"
     )
 
     args = parser.parse_args()
 
-    # Verificar archivo
+    # Check file
     input_path = Path(args.input_file)
     if not input_path.exists():
-        print(f"❌ Error: No se encontró el archivo {args.input_file}")
+        print(f"❌ Error: File {args.input_file} not found")
         sys.exit(1)
 
-    # Leer transcripción
+    # Read transcript
     try:
         with open(input_path, "r", encoding="utf-8") as f:
             text = f.read()
     except Exception as e:
-        print(f"❌ Error leyendo el archivo: {e}")
+        print(f"❌ Error reading file: {e}")
         sys.exit(1)
 
-    # Crear analizador
+    # Create analyzer
     analyzer = InterviewAnalyzer(model_name=args.model, ollama_url=args.url)
 
     try:
-        # Realizar análisis
+        # Perform analysis
         analysis = analyzer.analyze_interview(text)
 
-        # Mostrar resultados
+        # Show results
         print("\n" + "=" * 60)
-        print("🎤 ANÁLISIS DE ENTREVISTA COMPLETADO")
+        print("🎤 INTERVIEW ANALYSIS COMPLETED")
         print("=" * 60)
 
-        print(f"\n📊 INFORMACIÓN GENERAL:")
-        print(f"  • Tipo: {analysis.interview_type}")
-        print(f"  • Duración estimada: {analysis.duration_estimate} min")
-        print(f"  • Estilo: {analysis.interaction_style}")
-        print(f"  • Sentimiento: {analysis.sentiment}")
+        print(f"\n📊 GENERAL INFORMATION:")
+        print(f"  • Type: {analysis.interview_type}")
+        print(f"  • Estimated duration: {analysis.duration_estimate} min")
+        print(f"  • Style: {analysis.interaction_style}")
+        print(f"  • Sentiment: {analysis.sentiment}")
 
         if analysis.speakers:
-            print(f"\n👥 PARTICIPANTES:")
+            print(f"\n👥 PARTICIPANTS:")
             for speaker in analysis.speakers:
                 print(f"  • {speaker}")
 
-        print(f"\n💡 INSIGHTS CLAVE:")
+        print(f"\n💡 KEY INSIGHTS:")
         for insight in analysis.main_insights[:3]:
             print(f"  • {insight}")
 
-        print(f"\n💬 CITAS DESTACADAS:")
+        print(f"\n💬 HIGHLIGHT QUOTES:")
         for quote in analysis.quotes_highlights[:2]:
             print(f'  • "{quote[:100]}..."')
 
-        # Guardar reporte
+        # Save report
         if args.output:
             analyzer.save_interview_report(analysis, args.output)
         else:
             output_file = input_path.stem + "_interview_analysis.md"
             analyzer.save_interview_report(analysis, output_file)
 
-        print(f"\n✅ Análisis de entrevista completado exitosamente")
+        print(f"\n✅ Interview analysis completed successfully")
 
     except Exception as e:
-        print(f"❌ Error durante el análisis: {e}")
+        print(f"❌ Error during analysis: {e}")
         sys.exit(1)
 
 
